@@ -35,14 +35,19 @@ export default class CatalogStore {
     }
 
     createCatalog = async (data) => {
-        this.loading = true;
         try {
             const result = await agent.Catalogs.create(data);
             runInAction(() => {
                 this.info = result.info;
-            });
+                this.data = [data, ...this.data]
+            })
+
         } catch (error) {
-            this.info = error.message;
+            console.log(error)
+            runInAction(() => {
+                console.log(error)
+                this.info = error.message;
+            })
         }
     }
 

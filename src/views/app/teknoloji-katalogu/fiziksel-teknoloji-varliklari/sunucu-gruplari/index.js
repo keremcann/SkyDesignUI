@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const SunucuGruplari = observer(({ match }) => {
-    return <><p>Sunucu gruplari</p></>
-});
+const SunucuGruplari = ({ match }) => {
+    return <GlobalPage heading='menu.sunucu-gruplari' match={match} subCatalogId={7} />
+};
 
 export default SunucuGruplari;

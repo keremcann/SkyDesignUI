@@ -6,8 +6,9 @@ export const defaultMenuType = 'menu-default';
 
 export const subHiddenBreakpoint = 1440;
 export const menuHiddenBreakpoint = 768;
-export const defaultLocale = 'en';
+export const defaultLocale = 'tr';
 export const localeOptions = [
+  { id: 'tr', name: 'Türkçe', direction: 'ltr' },
   { id: 'en', name: 'English - LTR', direction: 'ltr' },
   { id: 'es', name: 'Español', direction: 'ltr' },
   { id: 'enrtl', name: 'English - RTL', direction: 'rtl' },

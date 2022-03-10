@@ -27,10 +27,10 @@ module.exports = {
   'user.username': 'Username',
 
   /* 03.Menu */
-  'menu.app': 'Home',
+  'menu.app': 'Anasayfa',
   'menu.dashboards': 'Dashboards',
   'menu.gogo': 'Gogo',
-  'menu.start': 'Start',
+  'menu.start': 'Katalog',
   'menu.second-menu': 'Second Menu',
   'menu.second': 'Second',
   'menu.ui': 'UI',
@@ -43,13 +43,26 @@ module.exports = {
   'menu.blank-page': 'Blank Page',
 
   /* 04.Error Page */
+  'pages.add-new': 'Yeni kayıt',
   'pages.error-title': 'Ooops... looks like an error occurred!',
   'pages.error-code': 'Error code',
   'pages.go-back-home': 'GO BACK HOME',
 
   /* Menu items */
   'menu.dashboard': 'Anasayfa',
-  'menu.dashboard.start': 'Anasayfa',
+  'menu.uygulama-modulleri': 'Uygulama modülleri',
+  'menu.uygulama-bilesenleri': 'Uygulama bileşenleri',
+  'menu.uygulama-servisleri': 'Uygulama servisleri',
+  'menu.uygulama-alanlari': 'Uygulama alanları',
+  'menu.sunucular': 'Sunucular',
+  'menu.sunucu-gruplari': 'Sunucular grupları',
+  'menu.switch': 'Switch',
+  'menu.sertifikalar': 'Sertifikalar',
+  
+  'menu.fiziksel-teknoloji-varliklari': 'Fiziksel teknoloji varlıkları',
+
+  'menu.dashboard.start': 'Katalog',
+
   'menu.strateji-katalogu': 'Strateji Kataloğu',
   'menu.vizyon': 'Vizyon',
   'menu.misyon': 'Misyon',

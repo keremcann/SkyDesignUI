@@ -1,8 +1,8 @@
 import React from 'react'
 import { observer } from "mobx-react-lite";
 
-const IsKabiliyetleri = observer(({ match }) => {
+const IsKabiliyetleri = ({ match }) => {
     return <><p>Is kabiliyetleri</p></>
-});
+};
 
-export default IsKabiliyetleri;
+export default observer(IsKabiliyetleri);

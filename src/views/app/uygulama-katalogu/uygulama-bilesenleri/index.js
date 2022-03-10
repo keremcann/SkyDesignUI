@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const UygulamaBilesenleri = observer(({ match }) => {
-    return <><p>Uygulama bilesenleri</p></>
-});
+const UygulamaBilesenleri = ({ match }) => {
+    return <GlobalPage heading='menu.uygulama-bilesenleri' match={match} subCatalogId={3} />
+};
 
 export default UygulamaBilesenleri;

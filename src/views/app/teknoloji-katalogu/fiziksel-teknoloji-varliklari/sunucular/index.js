@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Sunucular = observer(({ match }) => {
-    return <><p>Sunucular</p></>
-});
+const Sunucular = ({ match }) => {
+    return <GlobalPage heading='menu.sunucular' match={match} subCatalogId={3} />
+};
 
 export default Sunucular;

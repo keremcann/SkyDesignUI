@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Switch = observer(({ match }) => {
-    return <><p>Switch</p></>
-});
+const Switch = ({ match }) => {
+    return <GlobalPage heading='menu.switch' match={match} subCatalogId={4} />
+};
 
 export default Switch;

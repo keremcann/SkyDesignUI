@@ -10,6 +10,7 @@ import Form from 'reactstrap/lib/Form';
 import IntlMessages from '../../helpers/IntlMessages';
 
 const SkyModal = ({
+  headerText,
   modalOpen,
   toggleModal = () => { },
   children }) => {
@@ -22,7 +23,7 @@ const SkyModal = ({
       backdrop="static"
     >
       <ModalHeader toggle={() => toggleModal(!modalOpen)}>
-        Header
+        {headerText}
       </ModalHeader>
       {children}
     </Modal >

@@ -13,11 +13,20 @@ const requests = {
 
 const Catalogs = {
     list: (searchText) => requests.get("Catalog/getAllCatalog?searchText=" + searchText),
-    create: (data) => requests.post("Catalog/createCatalog", data),
+    create: (data) => requests.post("catalog/createCatalog", data),
+}
+
+const SubCatalogDetails = {
+    list: (subCatalogId) => requests.get("subCatalogDetail/getAllSubCatalogDetailBySubCatalogId?subCatalogId=" + subCatalogId),
+    create: (data) => requests.post('subCatalogDetail/createSubCatalogDetail', data),
+    update: (data) => requests.post('subCatalogDetail/updateSubCatalogDetail', data),
+    delete: (subCatalogDetailId) => requests.del('subCatalogDetail/deleteSubCatalogDetail?SubCatalogDetailId=' + subCatalogDetailId),
+
 }
 
 const agent = {
     Catalogs,
+    SubCatalogDetails
 }
 
 export default agent;

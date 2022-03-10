@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Form, FormGroup, Label, Row } from 'reactstrap';
+import { Button, Card, FormGroup, Label, Row } from 'reactstrap';
 import { Colxx, Separator } from '../../../components/common/CustomBootstrap';
 import Breadcrumb from '../../../containers/navs/Breadcrumb';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../../app/stores/store';
 import SkyModal from '../../../components/common/SkyModal';
 import IntlMessages from '../../../helpers/IntlMessages';
-import { AddPage } from './AddPage';
-import { Field, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
 const Schema = Yup.object().shape({
-  catalogName: Yup.string().required('Email is required!'),
-  createUser: Yup.string().required('Password is required!'),
+  catalogName: Yup.string().required('Catalog name is required!'),
 });
 
-const Start = observer(({ match }) => {
+const Start = ({ match }) => {
   const { catalogStore } = useStore();
   const { data, searchText, loading, setPredicate, loadCatalogs, createCatalog } = catalogStore;
 
@@ -28,54 +26,43 @@ const Start = observer(({ match }) => {
 
   useEffect(() => {
     loadCatalogs();
-  }, [loadCatalogs]);
+  }, []);
 
   const onSubmit = (values) => {
-    values.preventDefault();
     console.log(values);
     alert(JSON.stringify(values));
 
-    const payload = {
-      ...values,
-      state: values.state.value,
-    }
-
-    console.log(payload);
+    createCatalog(values);
+    setAddModalOpen(!addModalOpen);
   }
+
   return <>
     <SkyModal
       modalOpen={addModalOpen}
       toggleModal={setAddModalOpen}
     >
-      <SkyModal.Body>
+      <Formik
+        initialValues={{
+          catalogName: '',
+          createUser: '',
+        }}
+        validationSchema={Schema}
+        onSubmit={onSubmit}
+      >
+        <SkyModal.Body>
 
-        <Formik
-          initialValues={{
-            catalogName: '',
-            createUser: '',
-          }}
-          validationSchema={Schema}
-          onSubmit={onSubmit}
-        >
           {({
-            handleSubmit,
-            setFieldValue,
-            setFieldTouched,
-            handleChange,
-            handleBlur,
-            values,
             errors,
             touched,
-            isSubmitting,
           }) => (
             <Form className="av-tooltip tooltip-label-bottom">
-              
+
               <FormGroup className="form-group has-float-label">
                 <Label>
                   <IntlMessages id="forms.email" />
                 </Label>
                 <Field className="form-control" name="email" />
-                {errors.catalogName && touched.createUser ? (
+                {errors.catalogName && touched.catalogName ? (
                   <div className="invalid-feedback d-block">
                     {errors.catalogName}
                   </div>
@@ -103,12 +90,12 @@ const Start = observer(({ match }) => {
               </Button>
             </Form>
           )}
-        </Formik>
 
-      </SkyModal.Body>
-      <SkyModal.Footer>
+        </SkyModal.Body>
+        <SkyModal.Footer>
 
-      </SkyModal.Footer>
+        </SkyModal.Footer>
+      </Formik>
     </SkyModal>
 
     {/* <SkyModal
@@ -170,7 +157,7 @@ const Start = observer(({ match }) => {
     </Row>
     <Row>
       <Colxx xxs="12" className="mb-4">
-        <form onSubmit={(e) => {
+        {/* <form onSubmit={(e) => {
           e.preventDefault();
 
           setPredicate(e.target.elements.searchText.value)
@@ -178,7 +165,7 @@ const Start = observer(({ match }) => {
 
           <input type='text' placeholder='Search' name='searchText'></input>
           <button type='submit'>Search</button>
-        </form>
+        </form> */}
         <p>{searchText && "Searched text: "}{searchText}</p>
 
         {loading ? <>Loading...</> : <>
@@ -255,6 +242,6 @@ const Start = observer(({ match }) => {
     /> */}
 
   </>
-});
+};
 
-export default Start;
+export default observer(Start);

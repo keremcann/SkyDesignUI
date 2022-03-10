@@ -261,7 +261,7 @@ const TopNav = ({
             </DropdownMenu>
           </UncontrolledDropdown>
         </div>
-        <div className="position-relative d-none d-none d-lg-inline-block">
+        {/* <div className="position-relative d-none d-none d-lg-inline-block">
           <a
             className="btn btn-outline-primary btn-sm ml-2"
             target="_top"
@@ -269,10 +269,11 @@ const TopNav = ({
           >
             <IntlMessages id="user.buy" />
           </a>
-        </div>
+        </div> */}
       </div>
       <a className="navbar-logo" href="/">
-        <span className="logo d-none d-xs-block" />
+        <img src='/assets/img/logo.png' style={{ height: '42px' }} />
+        {/* <span className="logo d-none d-xs-block" /> */}
         <span className="logo-mobile d-block d-xs-none" />
       </a>
 
@@ -297,7 +298,7 @@ const TopNav = ({
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
             <DropdownToggle className="p-0" color="empty">
-              <span className="name mr-1">Sarah Kortney</span>
+              <span className="name mr-1">M. Servet Ankaralı</span>
               <span>
                 <img alt="Profile" src="/assets/img/profile-pic-l.jpg" />
               </span>

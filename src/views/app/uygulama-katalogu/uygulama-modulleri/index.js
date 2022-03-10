@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const UygulamaModulleri = observer(({ match }) => {
-    return <><p>Uygulama modulleri</p></>
-});
+const UygulamaModulleri = ({ match }) => {
+    return <GlobalPage heading='menu.uygulama-modulleri' match={match} subCatalogId={2} />
+};
 
 export default UygulamaModulleri;
