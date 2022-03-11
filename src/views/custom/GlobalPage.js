@@ -168,6 +168,13 @@ const GlobalPage = ({ heading, match, subCatalogId }) => {
                 }}>
                     Sil
                 </Button>
+
+                <Button color="secondary" type="button" onClick={async () => {
+                    toggleDeleteModal();
+                }}>
+                    İptal
+                </Button>
+
             </SkyModal.Footer>
         </SkyModal>
 

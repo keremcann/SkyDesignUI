@@ -54,8 +54,8 @@ Table of Contents
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700');
 
 $main-menu-item-height: 110px;
-$main-menu-width: 120px;
-$main-menu-width-lg: 110px;
+$main-menu-width: 160px;
+$main-menu-width-lg: 160px;
 $main-menu-width-md: 100px;
 $main-menu-width-xs: 90px;
 
@@ -2156,7 +2156,7 @@ button {
 
       li {
         margin-bottom: 0;
-        margin-left: 30px;
+        margin-left: 21px;
         position: relative;
 
         a {
@@ -2181,10 +2181,10 @@ button {
 
         &.active:after {
           content: ' ';
-          background: $theme-color-1;
+          background: white;
           border-radius: 10px;
           position: absolute;
-          width: 4px;
+          width: 0px;
           height: 4px;
           top: 50%;
           transform: translateY(-50%);
@@ -2813,6 +2813,28 @@ main {
   .menu-hidden main {
     margin-left: $main-margin-md;
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .colorize-it {

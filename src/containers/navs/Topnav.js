@@ -272,7 +272,8 @@ const TopNav = ({
         </div> */}
       </div>
       <a className="navbar-logo" href="/">
-        <img src='/assets/img/logo.png' style={{ height: '42px' }} />
+        <h1>Sky<b>Design</b></h1>
+        {/* <img src='/assets/img/logo.png' style={{ height: '42px' }} /> */}
         {/* <span className="logo d-none d-xs-block" /> */}
         <span className="logo-mobile d-block d-xs-none" />
       </a>
