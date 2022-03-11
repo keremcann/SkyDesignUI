@@ -10,7 +10,7 @@ import { IntlProvider } from 'react-intl';
 import AppLocale from './lang';
 import ColorSwitcher from './components/common/ColorSwitcher';
 import { NotificationContainer } from './components/common/react-notifications';
-import { isMultiColorActive } from './constants/defaultValues';
+import { isMultiColorActive, isDemo } from './constants/defaultValues';
 import { getDirection } from './helpers/Utils';
 
 const ViewMain = React.lazy(() =>
@@ -23,6 +23,26 @@ const ViewApp = React.lazy(() =>
 const ViewError = React.lazy(() =>
   import(/* webpackChunkName: "views-error" */ './views/error')
 );
+
+const AuthRoute = ({ component: Component, authUser, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        authUser || isDemo ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/user/login',
+              state: { from: props.location },
+            }}
+          />
+        )
+      }
+    />
+  );
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -38,7 +58,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { locale } = this.props;
+    const { locale, loginUser } = this.props;
     const currentAppLocale = AppLocale[locale];
 
     return (
@@ -53,6 +73,13 @@ class App extends React.Component {
             <Suspense fallback={<div className="loading" />}>
               <Router>
                 <Switch>
+
+                  {/* <AuthRoute
+                    path="/app"
+                    authUser={loginUser}
+                    component={ViewApp}
+                  /> */}
+
                   <Route
                     path="/app"
                     render={(props) => <ViewApp {...props} />}
