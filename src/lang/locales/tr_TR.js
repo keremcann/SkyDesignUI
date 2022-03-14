@@ -62,6 +62,9 @@ module.exports = {
   'menu.fiziksel-teknoloji-varliklari': 'Fiziksel teknoloji varlıkları',
 
   'menu.dashboard.start': 'Katalog',
+  'menu.dashboard.diyagramlar': 'Diyagramlar',
+  'menu.dashboard.altyapi-mimarisi': 'Altyapı Mimarisi',
+  'menu.dashboard.uygulama-mimarisi': 'Uygulama Mimarisi',
 
   'menu.strateji-katalogu': 'Strateji Kataloğu',
   'menu.vizyon': 'Vizyon',

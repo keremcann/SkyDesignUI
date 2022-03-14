@@ -3,14 +3,31 @@ const data = [
     id: 'dashboard',
     icon: 'iconsminds-air-balloon-1',
     label: 'menu.dashboard',
-    to: '/app/dashboard',
+    to: '/app/dashboard/start',
     subs: [
       {
-        icon: 'iconsminds-test-tube',
+        icon: 'simple-icon-book-open',
         label: 'menu.dashboard.start',
         to: '/app/dashboard/start',
       },
     ],
+  },
+  {
+    icon: 'iconsminds-plug-in',
+    label: 'menu.dashboard.diyagramlar',
+    to: '/app/dashboard/diyagramlar',
+    subs: [
+      {
+        icon: 'iconsminds-plug-in',
+        label: 'menu.dashboard.altyapi-mimarisi',
+        to: '/app/dashboard/diyagramlar/altyapi-mimarisi',
+      },
+      {
+        icon: 'iconsminds-plug-in',
+        label: 'menu.dashboard.uygulama-mimarisi',
+        to: '/app/dashboard/diyagramlar/uygulama-mimarisi',
+      },
+    ]
   },
   {
     id: 'strateji-katalogu',
