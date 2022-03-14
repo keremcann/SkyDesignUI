@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const DepolamaAygitlari = observer(({ match }) => {
-    return <><p>Depolama aygitlari</p></>
-});
+const DepolamaAygitlari = ({ match }) => {
+    return <GlobalPage heading={'menu.sertifikalar'} match={match} subCatalogId={1004} />
+};
 
 export default DepolamaAygitlari;

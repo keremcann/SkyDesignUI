@@ -41,7 +41,6 @@ const GlobalPage = ({ heading, match, subCatalogId }) => {
     }
 
     const AddOrUpdateModal = (data) => {
-        // alert(JSON.stringify(data))
         return <Formik
             initialValues={
                 data.data == null ? {

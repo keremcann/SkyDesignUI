@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const TeknolojikAltyapiPlatformlari = observer(({ match }) => {
-    return <><p>Teknolojik altyapi platformlari</p></>
-});
+const TeknolojikAltyapiPlatformlari = ({ match }) => {
+    return <GlobalPage heading={'menu.sertifikalar'} match={match} subCatalogId={1009} />
+};
 
 export default TeknolojikAltyapiPlatformlari;

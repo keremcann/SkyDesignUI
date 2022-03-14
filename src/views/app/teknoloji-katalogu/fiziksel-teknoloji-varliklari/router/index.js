@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Router = observer(({ match }) => {
-    return <><p>Router</p></>
-});
+const Router = ({ match }) => {
+    return <GlobalPage heading={'menu.sertifikalar'} match={match} subCatalogId={1003} />
+};
 
 export default Router;

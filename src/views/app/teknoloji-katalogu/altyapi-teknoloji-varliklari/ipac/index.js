@@ -1,8 +1,8 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const IPAC = observer(({ match }) => {
-    return <><p>IPAC</p></>
-});
+const IPAC = ({ match }) => {
+    return <GlobalPage heading={'menu.sertifikalar'} match={match} subCatalogId={1006} />
+};
 
 export default IPAC;
