@@ -14,17 +14,17 @@ const data = [
   },
   {
     icon: 'iconsminds-plug-in',
-    label: 'menu.dashboard.diyagramlar',
+    label: 'menu.diyagramlar',
     to: '/app/dashboard/diyagramlar',
     subs: [
       {
         icon: 'iconsminds-plug-in',
-        label: 'menu.dashboard.altyapi-mimarisi',
+        label: 'menu.diyagramlar.altyapi-mimarisi',
         to: '/app/dashboard/diyagramlar/altyapi-mimarisi',
       },
       {
         icon: 'iconsminds-plug-in',
-        label: 'menu.dashboard.uygulama-mimarisi',
+        label: 'menu.diyagramlar.uygulama-mimarisi',
         to: '/app/dashboard/diyagramlar/uygulama-mimarisi',
       },
     ]
@@ -37,32 +37,32 @@ const data = [
     subs: [
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.vizyon',
+        label: 'menu.strateji-katalogu.vizyon',
         to: '/app/strateji-katalogu/vizyon'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.misyon',
+        label: 'menu.strateji-katalogu.misyon',
         to: '/app/strateji-katalogu/misyon'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.stratejik-donem',
+        label: 'menu.strateji-katalogu.stratejik-donem',
         to: '/app/strateji-katalogu/stratejik-donem'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.odak-alanlari',
+        label: 'menu.strateji-katalogu.odak-alanlari',
         to: '/app/strateji-katalogu/odak-alanlari'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.stratejik-perspektif',
+        label: 'menu.strateji-katalogu.stratejik-perspektif',
         to: '/app/strateji-katalogu/stratejik-perspektif'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.stratejik-hedefler',
+        label: 'menu.strateji-katalogu.stratejik-hedefler',
         to: '/app/strateji-katalogu/stratejik-hedefler'
       },
 
@@ -77,22 +77,22 @@ const data = [
     subs: [
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.portfoy-hizalama',
+        label: 'menu.portfoy-katalogu.portfoy-hizalama',
         to: '/app/portfoy-katalogu/portfoy-hizalama'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.programlar',
+        label: 'menu.portfoy-katalogu.programlar',
         to: '/app/portfoy-katalogu/programlar'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.projeler',
+        label: 'menu.portfoy-katalogu.projeler',
         to: '/app/portfoy-katalogu/projeler'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.talepler',
+        label: 'menu.portfoy-katalogu.talepler',
         to: '/app/portfoy-katalogu/talepler'
       },
 
@@ -107,42 +107,42 @@ const data = [
     subs: [
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.is-kabiliyetleri',
+        label: 'menu.is-katalogu.is-kabiliyetleri',
         to: '/app/is-katalogu/is-kabiliyetleri'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.urunler',
+        label: 'menu.is-katalogu.urunler',
         to: '/app/is-katalogu/urunler'
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.organizasyon-mimarisi',
+        label: 'menu.is-katalogu.organizasyon-mimarisi',
         to: '/app/is-katalogu/organizasyon-mimarisi',
         subs: [
           {
             icon: 'simple-icon-arrow-right',
-            label: 'menu.organizasyon-mimarisi.kisiler',
+            label: 'menu.is-katalogu.organizasyon-mimarisi.kisiler',
             to: '/app/is-katalogu/organizasyon-mimarisi/kisiler'
           },
           {
             icon: 'simple-icon-arrow-right',
-            label: 'menu.organizasyon-mimarisi.roller',
+            label: 'menu.is-katalogu.organizasyon-mimarisi.roller',
             to: '/app/is-katalogu/organizasyon-mimarisi/roller'
           },
           {
             icon: 'simple-icon-arrow-right',
-            label: 'menu.organizasyon-mimarisi.ortamlar',
+            label: 'menu.is-katalogu.organizasyon-mimarisi.ortamlar',
             to: '/app/is-katalogu/organizasyon-mimarisi/ortamlar'
           },
           {
             icon: 'simple-icon-arrow-right',
-            label: 'menu.organizasyon-mimarisi.lokasyonlar',
+            label: 'menu.is-katalogu.organizasyon-mimarisi.lokasyonlar',
             to: '/app/is-katalogu/organizasyon-mimarisi/lokasyonlar'
           },
           {
             icon: 'simple-icon-arrow-right',
-            label: 'menu.organizasyon-mimarisi.organizasyon-birimleri',
+            label: 'menu.is-katalogu.organizasyon-mimarisi.organizasyon-birimleri',
             to: '/app/is-katalogu/organizasyon-mimarisi/organizasyon-birimleri'
           },
 
@@ -150,7 +150,7 @@ const data = [
       },
       {
         icon: 'simple-icon-arrow-right',
-        label: 'menu.kanallar',
+        label: 'menu.is-katalogu.kanallar',
         to: '/app/is-katalogu/kanallar'
       },
 
