@@ -38,5 +38,6 @@ export default class UserStore {
         store.commonStore.setToken(null);
         window.localStorage.removeItem('token');
         this.userName = null;
+        window.location.href = '/';
     }
 }

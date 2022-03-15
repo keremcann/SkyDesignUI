@@ -50,7 +50,8 @@ const TopNav = ({
 }) => {
   const { userStore } = useStore();
   const {
-    userName
+    userName,
+    logout
   } = userStore;
   const [isInFullScreen, setIsInFullScreen] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -315,7 +316,7 @@ const TopNav = ({
               <DropdownItem>History</DropdownItem>
               <DropdownItem>Support</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => handleLogout()}>
+              <DropdownItem onClick={() => logout()}>
                 Sign out
               </DropdownItem>
             </DropdownMenu>
