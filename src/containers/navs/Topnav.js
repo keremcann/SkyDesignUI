@@ -35,6 +35,7 @@ import TopnavNotifications from './Topnav.Notifications';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
 
 import { getDirection, setDirection } from '../../helpers/Utils';
+import { useStore } from '../../app/stores/store';
 
 const TopNav = ({
   intl,
@@ -47,6 +48,10 @@ const TopNav = ({
   clickOnMobileMenuAction,
   changeLocaleAction,
 }) => {
+  const { userStore } = useStore();
+  const {
+    userName
+  } = userStore;
   const [isInFullScreen, setIsInFullScreen] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
 
@@ -299,7 +304,7 @@ const TopNav = ({
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
             <DropdownToggle className="p-0" color="empty">
-              <span className="name mr-1">M. Servet Ankaralı</span>
+              <span className="name mr-1">{userName}</span>
               <span>
                 <img alt="Profile" src="/assets/img/profile-pic-l.jpg" />
               </span>

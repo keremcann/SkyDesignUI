@@ -12,24 +12,32 @@ import ColorSwitcher from './components/common/ColorSwitcher';
 import { NotificationContainer } from './components/common/react-notifications';
 import { isMultiColorActive, isDemo } from './constants/defaultValues';
 import { getDirection } from './helpers/Utils';
+import { useStore } from './app/stores/store';
 
 const ViewMain = React.lazy(() =>
-  import(/* webpackChunkName: "views" */ './views')
+  import('./views')
 );
+
+const ViewUser = React.lazy(() =>
+  import('./views/user')
+);
+
 const ViewApp = React.lazy(() =>
-  import(/* webpackChunkName: "views-app" */ './views/app')
+  import('./views/app')
 );
 
 const ViewError = React.lazy(() =>
-  import(/* webpackChunkName: "views-error" */ './views/error')
+  import('./views/error')
 );
 
-const AuthRoute = ({ component: Component, authUser, ...rest }) => {
+const AuthRoute = ({ component: Component, ...rest }) => {
+  const { commonStore } = useStore();
+  const { token } = commonStore;
   return (
     <Route
       {...rest}
       render={(props) =>
-        authUser || isDemo ? (
+        token || isDemo ? (
           <Component {...props} />
         ) : (
           <Redirect
@@ -74,11 +82,16 @@ class App extends React.Component {
               <Router>
                 <Switch>
 
-                  {/* <AuthRoute
+                  <AuthRoute
                     path="/app"
                     authUser={loginUser}
                     component={ViewApp}
-                  /> */}
+                  />
+
+                  <Route
+                    path="/user"
+                    render={(props) => <ViewUser {...props} />}
+                  />
 
                   <Route
                     path="/app"
