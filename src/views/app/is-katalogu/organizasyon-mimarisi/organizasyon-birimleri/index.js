@@ -3,7 +3,7 @@ import GlobalPage from '../../../../custom/GlobalPage';
 
 const OrganizasyonBirimleri = ({ match }) => {
     return <GlobalPage
-        heading='menu.organizasyon-mimarisi.organizasyon-birimleri'
+        heading='menu.is-katalogu.organizasyon-mimarisi.organizasyon-birimleri'
         match={match}
         subCatalogId={1018} />
 };
