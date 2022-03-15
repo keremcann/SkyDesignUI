@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Kisaltmalar = observer(({ match }) => {
-    return <><p>Kisaltmalar</p></>
-});
+const Kisaltmalar = ({ match }) => {
+    return <GlobalPage
+        heading='menu.veri-katalogu.is-sozlugu.kisaltmalar'
+        match={match}
+        subCatalogId={1048} />
+};
 
 export default Kisaltmalar;

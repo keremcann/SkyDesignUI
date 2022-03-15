@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Gorevler = observer(({ match }) => {
-    return <><p>Gorevler</p></>
-});
+const Gorevler = ({ match }) => {
+    return <GlobalPage
+        heading='menu.surec-katalogu.gorevler'
+        match={match}
+        subCatalogId={1036} />
+};
 
 export default Gorevler;

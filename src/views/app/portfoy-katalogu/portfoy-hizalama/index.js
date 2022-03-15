@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const PortfoyHizalama = observer(({ match }) => {
-    return <><p>Portfoy hizalama</p></>
-});
+const PortfoyHizalama = ({ match }) => {
+    return <GlobalPage
+        heading='menu.portfoy-katalogu.portfoy-hizalama'
+        match={match}
+        subCatalogId={1022} />
+};
 
 export default PortfoyHizalama;

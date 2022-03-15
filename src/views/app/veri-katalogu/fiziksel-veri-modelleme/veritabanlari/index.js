@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Veritabanlari = observer(({ match }) => {
-    return <><p>Veritabanlari</p></>
-});
+const Veritabanlari = ({ match }) => {
+    return <GlobalPage
+        heading='menu.veri-katalogu.fiziksel-veri-modelleme.veritabanlari'
+        match={match}
+        subCatalogId={1046} />
+};
 
 export default Veritabanlari;

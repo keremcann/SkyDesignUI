@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Urunler = observer(({ match }) => {
-    return <><p>Urunler</p></>
-});
+const Urunler = ({ match }) => {
+    return <GlobalPage
+        heading='menu.organizasyon-mimarisi.urunler'
+        match={match}
+        subCatalogId={1021} />
+};
 
 export default Urunler;

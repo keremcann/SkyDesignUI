@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
 const IsKabiliyetleri = ({ match }) => {
-    return <><p>Is kabiliyetleri</p></>
+    return <GlobalPage
+        heading='menu.is-kabiliyetleri'
+        match={match}
+        subCatalogId={1014} />
 };
 
-export default observer(IsKabiliyetleri);
+export default IsKabiliyetleri;

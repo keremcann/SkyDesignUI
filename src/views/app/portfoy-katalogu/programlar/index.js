@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Programlar = observer(({ match }) => {
-    return <><p>Programlar</p></>
-});
+const Programlar = ({ match }) => {
+    return <GlobalPage
+        heading='menu.portfoy-katalogu.programlar'
+        match={match}
+        subCatalogId={1023} />
+};
 
 export default Programlar;

@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Mevzuatlar = observer(({ match }) => {
-    return <><p>Mevzuatlar</p></>
-});
+const Mevzuatlar = ({ match }) => {
+    return <GlobalPage
+        heading='menu.veri-katalogu.is-sozlugu.mevzuatlar'
+        match={match}
+        subCatalogId={1049} />
+};
 
 export default Mevzuatlar;

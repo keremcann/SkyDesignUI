@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const VeriOgeleri = observer(({ match }) => {
-    return <><p>Veri ogeleri</p></>
-});
+const VeriOgeleri = ({ match }) => {
+    return <GlobalPage
+        heading='menu.veri-katalogu.fiziksel-veri-modelleme.veri-ogeleri'
+        match={match}
+        subCatalogId={1043} />
+};
 
 export default VeriOgeleri;

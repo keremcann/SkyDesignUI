@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Misyon = observer(({ match }) => {
-    return <><p>Misyon</p></>
-});
+const Misyon = ({ match }) => {
+    return <GlobalPage
+        heading='menu.strateji-katalogu.misyon'
+        match={match}
+        subCatalogId={1028} />
+};
 
 export default Misyon;

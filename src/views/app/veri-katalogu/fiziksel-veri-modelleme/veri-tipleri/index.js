@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const VeriTipleri = observer(({ match }) => {
-    return <><p>Veri tipleri</p></>
-});
+const VeriTipleri = ({ match }) => {
+    return <GlobalPage
+        heading='menu.veri-katalogu.fiziksel-veri-modelleme.veri-tipleri'
+        match={match}
+        subCatalogId={1045} />
+};
 
 export default VeriTipleri;

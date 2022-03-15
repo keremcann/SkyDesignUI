@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const BtRiskleri = observer(({ match }) => {
-    return <><p>Bt riskleri</p></>
-});
+const BtRiskleri = ({ match }) => {
+    return <GlobalPage
+        heading='menu.risk-katalogu.bt-riskleri'
+        match={match}
+        subCatalogId={1026} />
+};
 
 export default BtRiskleri;

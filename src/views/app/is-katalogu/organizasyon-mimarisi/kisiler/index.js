@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Kisiler = observer(({ match }) => {
-    return <><p>Kisiler</p></>
-});
+const Kisiler = ({ match }) => {
+    return <GlobalPage
+        heading='menu.organizasyon-mimarisi.kisiler'
+        match={match}
+        subCatalogId={1016} />
+};
 
 export default Kisiler;

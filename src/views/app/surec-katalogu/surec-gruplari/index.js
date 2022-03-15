@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const SurecGruplari = observer(({ match }) => {
-    return <><p>Surec gruplari</p></>
-});
+const SurecGruplari = ({ match }) => {
+    return <GlobalPage
+        heading='menu.surec-katalogu.surec-gruplari'
+        match={match}
+        subCatalogId={1039} />
+};
 
 export default SurecGruplari;

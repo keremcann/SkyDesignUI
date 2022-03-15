@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Tablolar = observer(({ match }) => {
-    return <><p>Tablolar</p></>
-});
+const Tablolar = ({ match }) => {
+    return <GlobalPage
+        heading='menu.veri-katalogu.fiziksel-veri-modelleme.tablolar'
+        match={match}
+        subCatalogId={1042} />
+};
 
 export default Tablolar;

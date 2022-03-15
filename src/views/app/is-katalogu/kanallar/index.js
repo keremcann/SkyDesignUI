@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Kanallar = observer(({ match }) => {
-    return <><p>Kanallar</p></>
-});
+const Kanallar = ({ match }) => {
+    return <GlobalPage
+        heading='menu.kanallar'
+        match={match}
+        subCatalogId={1015} />
+};
 
 export default Kanallar;

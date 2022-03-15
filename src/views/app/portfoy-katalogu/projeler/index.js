@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Projeler = observer(({ match }) => {
-    return <><p>Projeler</p></>
-});
+const Projeler = ({ match }) => {
+    return <GlobalPage
+        heading='menu.portfoy-katalogu.projeler'
+        match={match}
+        subCatalogId={1024} />
+};
 
 export default Projeler;

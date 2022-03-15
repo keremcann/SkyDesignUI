@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Terimler = observer(({ match }) => {
-    return <><p>Terimler</p></>
-});
+const Terimler = ({ match }) => {
+    return <GlobalPage
+        heading='menu.veri-katalogu.is-sozlugu.terimler'
+        match={match}
+        subCatalogId={1050} />
+};
 
 export default Terimler;

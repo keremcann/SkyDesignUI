@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Havuzlar = observer(({ match }) => {
-    return <><p>Havuzlar</p></>
-});
+const Havuzlar = ({ match }) => {
+    return <GlobalPage
+        heading='menu.surec-katalogu.havuzlar'
+        match={match}
+        subCatalogId={1037} />
+};
 
 export default Havuzlar;

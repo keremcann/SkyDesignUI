@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Roller = observer(({ match }) => {
-    return <><p>Roller</p></>
-});
+const Roller = ({ match }) => {
+    return <GlobalPage
+        heading='menu.organizasyon-mimarisi.roller'
+        match={match}
+        subCatalogId={1020} />
+};
 
 export default Roller;

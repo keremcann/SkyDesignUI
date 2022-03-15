@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const Ortamlar = observer(({ match }) => {
-    return <><p>Ortamlar</p></>
-});
+const Ortamlar = ({ match }) => {
+    return <GlobalPage
+        heading='menu.organizasyon-mimarisi.ortamlar'
+        match={match}
+        subCatalogId={1019} />
+};
 
 export default Ortamlar;

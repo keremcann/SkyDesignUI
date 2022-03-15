@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Talepler = observer(({ match }) => {
-    return <><p>Talepler</p></>
-});
+const Talepler = ({ match }) => {
+    return <GlobalPage
+        heading='menu.portfoy-katalogu.talepler'
+        match={match}
+        subCatalogId={1025} />
+};
 
 export default Talepler;

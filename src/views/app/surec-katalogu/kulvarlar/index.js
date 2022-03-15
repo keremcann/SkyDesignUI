@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Kulvarlar = observer(({ match }) => {
-    return <><p>Kulvarlar</p></>
-});
+const Kulvarlar = ({ match }) => {
+    return <GlobalPage
+        heading='menu.surec-katalogu.kulvarlar'
+        match={match}
+        subCatalogId={1038} />
+};
 
 export default Kulvarlar;

@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Vizyon = observer(({ match }) => {
-    return <><p>Vizyon</p></>
-});
+const Vizyon = ({ match }) => {
+    return <GlobalPage
+        heading='menu.strateji-katalogu.vizyon'
+        match={match}
+        subCatalogId={1033} />
+};
 
 export default Vizyon;

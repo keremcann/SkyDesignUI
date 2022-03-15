@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const StratejikDonem = observer(({ match }) => {
-    return <><p>Stratejik donem</p></>
-});
+const StratejikDonem = ({ match }) => {
+    return <GlobalPage
+        heading='menu.strateji-katalogu.stratejik-donem'
+        match={match}
+        subCatalogId={1030} />
+};
 
 export default StratejikDonem;

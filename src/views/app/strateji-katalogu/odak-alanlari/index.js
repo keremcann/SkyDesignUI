@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const OdakAlanlari = observer(({ match }) => {
-    return <><p>Odak alanlari</p></>
-});
+const OdakAlanlari = ({ match }) => {
+    return <GlobalPage
+        heading='menu.strateji-katalogu.odak-alanlari'
+        match={match}
+        subCatalogId={1029} />
+};
 
 export default OdakAlanlari;

@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../../custom/GlobalPage';
 
-const VeriStandartlari = observer(({ match }) => {
-    return <><p>Veri standartlari</p></>
-});
+const VeriStandartlari = ({ match }) => {
+    return <GlobalPage
+        heading='menu.veri-katalogu.is-sozlugu.veri-standartlari'
+        match={match}
+        subCatalogId={1052} />
+};
 
 export default VeriStandartlari;

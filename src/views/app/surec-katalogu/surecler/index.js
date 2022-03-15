@@ -1,8 +1,11 @@
 import React from 'react'
-import { observer } from "mobx-react-lite";
+import GlobalPage from '../../../custom/GlobalPage';
 
-const Surecler = observer(({ match }) => {
-    return <><p>Surecler</p></>
-});
+const Surecler = ({ match }) => {
+    return <GlobalPage
+        heading='menu.surec-katalogu.surecler'
+        match={match}
+        subCatalogId={1040} />
+};
 
 export default Surecler;
