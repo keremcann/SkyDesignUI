@@ -12,10 +12,6 @@ const ServerNode = ({ data, isConnectable }) => {
                 onConnect={(params) => console.log('handle onConnect', params)}
                 isConnectable={isConnectable}
             />
-            <div>
-                Server
-            </div>
-
             <Handle
                 type="source"
                 position="right"

@@ -9,15 +9,6 @@ export default () => {
     return (
         <aside>
             <div className="description">You can drag these nodes to the pane on the right.</div>
-            {/* <div className="sdnode input" onDragStart={(event) => onDragStart(event, 'input')} draggable>
-                Input Node
-            </div>
-            <div className="sdnode" onDragStart={(event) => onDragStart(event, 'default')} draggable>
-                Default Node
-            </div>
-            <div className="sdnode output" onDragStart={(event) => onDragStart(event, 'output')} draggable>
-                Output Node
-            </div> */}
             
             <div className="sdnode node-client" onDragStart={(event) => onDragStart(event, 'client')} draggable>
                 <h1>Client</h1>

@@ -12,10 +12,6 @@ const DatabaseNode = ({ data, isConnectable }) => {
                 onConnect={(params) => console.log('handle onConnect', params)}
                 isConnectable={isConnectable}
             />
-            <div>
-                Database<br></br>({data.label})
-            </div>
-
             <Handle
                 type="source"
                 position="right"

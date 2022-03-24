@@ -12,10 +12,6 @@ const LoadBalancerNode = ({ data, isConnectable }) => {
                 onConnect={(params) => console.log('handle onConnect', params)}
                 isConnectable={isConnectable}
             />
-            <div>
-                Load Balancer
-            </div>
-
             <Handle
                 type="source"
                 position="right"

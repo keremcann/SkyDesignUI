@@ -12,10 +12,6 @@ const SwitchNode = ({ data, isConnectable }) => {
                 onConnect={(params) => console.log('handle onConnect', params)}
                 isConnectable={isConnectable}
             />
-            <div>
-                Switch
-            </div>
-
             <Handle
                 type="source"
                 position="right"

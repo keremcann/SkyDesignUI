@@ -40,10 +40,6 @@ const ClientNode = ({ data, isConnectable }) => {
                 style={{ top: 30, background: '#555' }}
                 isConnectable={isConnectable}
             />
-
-            <div>
-                Client
-            </div>
         </>
     );
 };

@@ -12,10 +12,6 @@ const RouterNode = ({ data, isConnectable }) => {
                 onConnect={(params) => console.log('handle onConnect', params)}
                 isConnectable={isConnectable}
             />
-            <div>
-                Router
-            </div>
-
             <Handle
                 type="source"
                 position="right"

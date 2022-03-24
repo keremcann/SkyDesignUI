@@ -38,6 +38,11 @@ const Diyagramlar = () => {
         event.dataTransfer.dropEffect = 'move';
     };
 
+    const onDragStart = (event, nodeType) => {
+        event.dataTransfer.setData('application/reactflow', nodeType);
+        event.dataTransfer.effectAllowed = 'move';
+    };
+
     const onDrop = (event) => {
         event.preventDefault();
 
@@ -82,10 +87,12 @@ const Diyagramlar = () => {
         setElements((es) => es.concat(newNode));
     };
 
+    const buttonStyle = { position: 'absolute', right: 10, top: 30, zIndex: 4 };
+
     return (
         <div className="dndflow">
             <ReactFlowProvider>
-                <div className="reactflow-wrapper" ref={reactFlowWrapper} style={{ height: '480px', borderStyle: "solid" }}>
+                <div className="reactflow-wrapper" ref={reactFlowWrapper} style={{ height: '540px', borderStyle: "solid", borderWidth: 'thin' }}>
                     <ReactFlow
                         elements={elements}
                         onConnect={onConnect}
@@ -99,13 +106,47 @@ const Diyagramlar = () => {
                     >
                         <Controls />
                         <Background />
+                        <aside style={buttonStyle} className='component-list'>
+
+                            {/* <div className="description item" style={{ fontSize: '14px', paddingRight: '14px' }}>Bu paneli kullanarak sürükle bırak işlemini gerçekleştirebilirsiniz.</div> */}
+
+                            <div className="sdnode node-client item" onDragStart={(event) => onDragStart(event, 'client')} draggable>
+                                <div>Client</div>
+                                <img className='component-icon' src='/assets/img/component-images/client.png'></img>
+                            </div>
+                            <div className="sdnode node-database item" onDragStart={(event) => onDragStart(event, 'database')} draggable>
+                                <div>Database</div>
+                                <img className='component-icon' src='/assets/img/component-images/database.png'></img>
+                            </div>
+
+                            <div className="sdnode node-server item" onDragStart={(event) => onDragStart(event, 'server')} draggable>
+                                <div>Server</div>
+                                <img className='component-icon' src='/assets/img/component-images/server.png'></img>
+                            </div>
+
+                            <div className="sdnode node-router item" onDragStart={(event) => onDragStart(event, 'router')} draggable>
+                                <div>Router</div>
+                                <img className='component-icon' src='/assets/img/component-images/router.png'></img>
+                            </div>
+
+                            <div className="sdnode node-switch item" onDragStart={(event) => onDragStart(event, 'switch')} draggable>
+                                <div>Switch</div>
+                                <img className='component-icon' src='/assets/img/component-images/switch.png'></img>
+                            </div>
+
+                            <div className="sdnode node-loadBalancer item" onDragStart={(event) => onDragStart(event, 'loadBalancer')} draggable>
+                                <div>Load balancer</div>
+                                <img className='component-icon' src='/assets/img/component-images/load-balancer.png'></img>
+                            </div>
+                        </aside>
+
+                        {/* <button onClick={() => alert(JSON.stringify(elements))}>JSON</button>
+                        <button onClick={() => alert(JSON.stringify(_.last(_.map(_.map(elements, 'id'), _.toNumber))))}>JSON</button> */}
                     </ReactFlow>
                 </div>
-                <Sidebar />
+                {/* <Sidebar /> */}
             </ReactFlowProvider>
 
-            <button onClick={() => alert(JSON.stringify(elements))}>JSON</button>
-            <button onClick={() => alert(JSON.stringify(_.last(_.map(_.map(elements, 'id'), _.toNumber))))}>JSON</button>
         </div>
     );
 };
