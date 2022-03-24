@@ -13,18 +13,18 @@ module.exports = {
   'general.copyright': 'Gogo React © 2018 All Rights Reserved.',
 
   /* 02.User Login, Logout, Register */
-  'user.login-title': 'Login',
+  'user.login-title': 'Kullanıcı adı ve parolanızı giriniz',
   'user.register': 'Register',
   'user.forgot-password': 'Forgot Password',
   'user.email': 'E-mail',
-  'user.password': 'Password',
-  'user.forgot-password-question': 'Forget password?',
+  'user.password': 'Parola',
+  'user.forgot-password-question': 'Şifremi unuttum',
   'user.fullname': 'Full Name',
-  'user.login-button': 'LOGIN',
+  'user.login-button': 'Oturum aç',
   'user.register-button': 'REGISTER',
   'user.reset-password-button': 'RESET',
   'user.buy': 'BUY',
-  'user.username': 'Username',
+  'user.userName': 'Kullanıcı adı',
 
   /* 03.Menu */
   'menu.app': 'Anasayfa',

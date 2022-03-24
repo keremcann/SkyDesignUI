@@ -1,11 +1,10 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { useHistory } from "react-router-dom";
 import agent from "../api/agent";
 import Notifier from "../utils/Notifier";
 import { store } from "./store";
 
 export default class UserStore {
-    userName = null;
+    userName = JSON.parse(localStorage.getItem("user-info"));
     loginSucceeded = false;
 
     constructor() {
@@ -22,22 +21,24 @@ export default class UserStore {
             if (loginResponse?.success) {
                 store.commonStore.setToken(loginResponse.token);
                 runInAction(() => {
-                    this.userName = loginResponse.fullName;
+                    localStorage.setItem('user-info', JSON.stringify({
+                        userName: loginResponse.fullName
+                    }))
                     this.loginSucceeded = true;
-                    Notifier.success('Login succeeded');
+                    Notifier.success(`Login successful. Welcome ${loginResponse.fullName}`);
                 });
             } else {
                 Notifier.error(loginResponse?.errorMessage)
             }
         } catch (error) {
-            throw error;
+            Notifier.error(error.message);
         }
     }
 
     logout = () => {
         store.commonStore.setToken(null);
         window.localStorage.removeItem('token');
-        this.userName = null;
+        localStorage.removeItem('user-info');
         window.location.href = '/';
     }
 }

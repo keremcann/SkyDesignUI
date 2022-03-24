@@ -6,13 +6,21 @@ import ReactFlow, {
     Controls,
     Background,
 } from 'react-flow-renderer';
-
 import Sidebar from './Sidebar';
+import * as NodeType from './custom-components';
+import _ from "lodash";
 
 let id = 0;
-const getId = () => `sdnode_${id++}`;
+const getId = () => `${id++}`;
 
-const snapGrid = [10, 10];
+const nodeTypes = {
+    client: NodeType.ClientNode,
+    database: NodeType.DatabaseNode,
+    server: NodeType.ServerNode,
+    router: NodeType.RouterNode,
+    switch: NodeType.SwitchNode,
+    loadBalancer: NodeType.LoadBalancerNode,
+};
 
 const Diyagramlar = () => {
     const reactFlowWrapper = useRef(null);
@@ -39,12 +47,37 @@ const Diyagramlar = () => {
             x: event.clientX - reactFlowBounds.left,
             y: event.clientY - reactFlowBounds.top,
         });
-        const newNode = {
+
+        let newNode = {
             id: getId(),
             type,
-            position,
-            data: { label: `${type} node` },
+            position
         };
+
+        switch (type) {
+            case 'database':
+                const dbName = prompt('Enter DB Name');
+                newNode = {
+                    ...newNode,
+                    data: { label: dbName }
+                }
+                break;
+
+            case 'client':
+                const clientName = prompt('Enter client Name');
+
+                if (!clientName) return;
+
+                newNode = {
+                    ...newNode,
+                    data: { clientInfo: clientName }
+                }
+                break;
+
+            default:
+
+                break;
+        }
 
         setElements((es) => es.concat(newNode));
     };
@@ -61,7 +94,8 @@ const Diyagramlar = () => {
                         onDrop={onDrop}
                         onDragOver={onDragOver}
                         snapToGrid={true}
-                        snapGrid={snapGrid}
+                        snapGrid={[10, 10]}
+                        nodeTypes={nodeTypes}
                     >
                         <Controls />
                         <Background />
@@ -71,6 +105,7 @@ const Diyagramlar = () => {
             </ReactFlowProvider>
 
             <button onClick={() => alert(JSON.stringify(elements))}>JSON</button>
+            <button onClick={() => alert(JSON.stringify(_.last(_.map(_.map(elements, 'id'), _.toNumber))))}>JSON</button>
         </div>
     );
 };

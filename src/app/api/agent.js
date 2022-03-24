@@ -13,20 +13,20 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(async response => {
     return response;
 }, (error) => {
-    if (error?.isAxiosError) {
-        Notifier.error(error?.message);
+    if (error.response == undefined) {
+        Notifier.error(error.message);
         return Promise.reject(error);
     }
 
-    const { data, status, config, headers } = error?.response;
+    const { data, status, config, headers } = error.response;
 
     switch (status) {
         case 400:
             if (config.method === 'get' && data.errors.hasOwnProperty('id')) {
                 window.location.href = '/not-found';
             }
-            if (data?.errorMessage) {
-                Notifier.error(data?.errorMessage)
+            if (data?.Message) {
+                Notifier.error(data?.Message)
             } else {
                 Notifier.primary(data);
             }

@@ -60,8 +60,9 @@ const Login = ({ history, loading, error, loginUserAction }) => {
             <Colxx xxs="12" md="10" className="mx-auto my-auto">
                 <Card className="auth-card">
                     <div className="position-relative image-side ">
-                        <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
-                        <p className="white mb-0">
+                        <p className="text-white h2">IT Varlık Yönetimi</p>
+                        {/* <p className='text-white'>Hoş Geldiniz</p> */}
+                        {/* <p className="white mb-0">
                             Please use your credentials to login.
                             <br />
                             If you are not a member, please{' '}
@@ -69,11 +70,15 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                                 register
                             </NavLink>
                             .
-                        </p>
+                        </p> */}
                     </div>
                     <div className="form-side">
                         <NavLink to="/" className="white">
-                            <span className="logo-single" />
+                            {/* <span className="logo-single" /> */}
+                            <div style={{ display: 'flex', alignSelf: 'center' }}>
+                                <img src='/assets/img/logo.png' style={{ height: '42px' }} />
+                                <h1 style={{ padding: '5px', color: 'black' }}>Sky<b>Design</b></h1>
+                            </div>
                         </NavLink>
                         <CardTitle className="mb-4">
                             <IntlMessages id="user.login-title" />
@@ -115,7 +120,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                                     </FormGroup>
                                     <div className="d-flex justify-content-between align-items-center">
                                         <NavLink to="/user/forgot-password">
-                                            <IntlMessages id="user.forgot-password-question" />
+                                            {/* <IntlMessages id="user.forgot-password-question" /> */}
                                         </NavLink>
                                         <Button
                                             color="primary"

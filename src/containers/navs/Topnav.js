@@ -279,8 +279,10 @@ const TopNav = ({
       </div>
       <a className="navbar-logo" href="/">
         {/* <span className="logo-mobile d-block d-xs-none" /> */}
-        <h1>Sky<b>Design</b></h1>
-        {/* <img src='/assets/img/logo.png' style={{ height: '42px' }} /> */}
+        <div style={{ display: 'flex', alignSelf: 'center' }}>
+          <img src='/assets/img/logo.png' style={{ height: '42px' }} />
+          <h1 style={{ padding: '5px' }}>Sky<b>Design</b></h1>
+        </div>
         {/* <span className="logo d-none d-xs-block" /> */}
       </a>
 
@@ -305,7 +307,7 @@ const TopNav = ({
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
             <DropdownToggle className="p-0" color="empty">
-              <span className="name mr-1">{userName}</span>
+              <span className="name mr-1">{userName.userName}</span>
               <span>
                 <img alt="Profile" src="/assets/img/profile-pic-l.jpg" />
               </span>
