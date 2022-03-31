@@ -87,8 +87,6 @@ const Diyagramlar = () => {
         setElements((es) => es.concat(newNode));
     };
 
-    const buttonStyle = { position: 'absolute', right: 10, top: 30, zIndex: 4 };
-
     return (
         <div className="dndflow">
             <ReactFlowProvider>
@@ -106,7 +104,7 @@ const Diyagramlar = () => {
                     >
                         <Controls />
                         <Background />
-                        <aside style={buttonStyle} className='component-list'>
+                        <aside style={{ position: 'absolute', right: 10, top: 30, zIndex: 4 }} className='component-list'>
 
                             {/* <div className="description item" style={{ fontSize: '14px', paddingRight: '14px' }}>Bu paneli kullanarak sürükle bırak işlemini gerçekleştirebilirsiniz.</div> */}
 

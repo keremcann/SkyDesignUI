@@ -307,7 +307,7 @@ const TopNav = ({
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
             <DropdownToggle className="p-0" color="empty">
-              <span className="name mr-1">{userName.userName}</span>
+              <span className="name mr-1">{userName?.userName}</span>
               <span>
                 <img alt="Profile" src="/assets/img/profile-pic-l.jpg" />
               </span>

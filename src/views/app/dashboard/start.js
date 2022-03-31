@@ -1,21 +1,61 @@
-import React, { useState, useRef } from 'react';
-import ReactFlow, {
-  ReactFlowProvider,
-  addEdge,
-  removeElements,
-  Controls,
-  Background,
-} from 'react-flow-renderer';
+import React, { useState, useEffect } from 'react';
 import { Row } from 'reactstrap';
-import { Colxx, Separator } from '../../../components/common/CustomBootstrap';
+import { Colxx } from '../../../components/common/CustomBootstrap';
 import GradientWithRadialProgressCard from '../../../components/cards/GradientWithRadialProgressCard';
 import ChartCard from './ChartCard';
 import Doughnut from './doughnut';
 import Calendar from './Calendar';
 import Users from './Users';
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import filterFactory from 'react-bootstrap-table2-filter';
+import _ from 'lodash';
+import { ColumnBuilder } from '../../../app/utils/ColumnBuilder';
+// import products from './datas';
+import axios from 'axios';
+
+
+const columns = (products) => [
+  new ColumnBuilder('id', 'Product ID').isIdField().sortable().withTextFilter(true).build(),
+  new ColumnBuilder('name', 'Product name').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('price', 'New Pricess').sortable().withTextFilter(true).build(),
+  new ColumnBuilder('action', 'Looks good').isDummyField().withFormat((cell, row, rowIndex) => (
+    <>
+      <button onClick={() => {
+        alert('cell: ' + JSON.stringify(cell))
+        alert('row: ' + JSON.stringify(row))
+        alert('index: ' + JSON.stringify(rowIndex))
+      }}>Click here</button>
+    </>
+  )).build(),
+];
 
 const Start = () => {
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+
+    const getData = async () => {
+      setLoading(true);
+      setProducts(await (await axios.get('http://localhost:18202/main/getallproducts')).data);
+      setLoading(false);
+    };
+
+    getData();
+
+  }, []);
+
   return <>
+    {loading ? <h1>Loading...</h1> :
+      (<div>
+        <BootstrapTable
+          keyField='id'
+          data={products}
+          columns={columns(products)}
+          filter={filterFactory()}
+          pagination={paginationFactory()} />
+      </div>)}
     <Row>
       <Colxx lg="4" md="6" className="mb-4">
         <GradientWithRadialProgressCard
