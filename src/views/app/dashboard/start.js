@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row } from 'reactstrap';
+import { Card, CardBody, CardTitle, Row } from 'reactstrap';
 import { Colxx } from '../../../components/common/CustomBootstrap';
 import GradientWithRadialProgressCard from '../../../components/cards/GradientWithRadialProgressCard';
 import ChartCard from './ChartCard';
@@ -18,7 +18,23 @@ import axios from 'axios';
 const columns = (products) => [
   new ColumnBuilder('id', 'Product ID').isIdField().sortable().withTextFilter(true).build(),
   new ColumnBuilder('name', 'Product name').sortable().withSelectFilter(products).build(),
-  new ColumnBuilder('price', 'New Pricess').sortable().withTextFilter(true).build(),
+  new ColumnBuilder('price', 'New Pricess').sortable().withTextFilter().build(),
+  new ColumnBuilder('random1', 'Random 1').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random2', 'Random 2').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random3', 'Random 3').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random4', 'Random 4').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random5', 'Random 5').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random6', 'Random 6').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random7', 'Random 7').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random8', 'Random 8').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random9', 'Random 9').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random10', 'Random 10').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random11', 'Random 11').sortable().withSelectFilter(products).build(),
+  new ColumnBuilder('random12', 'Random 12').sortable().withSelectFilter(products)
+    .withFormat((cell) =>
+      cell.includes('a')
+        ? <div style={{ color: 'red' }}>{cell}</div>
+        : <div>{cell}</div>).build(),
   new ColumnBuilder('action', 'Looks good').isDummyField().withFormat((cell, row, rowIndex) => (
     <>
       <button onClick={() => {
@@ -47,15 +63,27 @@ const Start = () => {
   }, []);
 
   return <>
-    {loading ? <h1>Loading...</h1> :
-      (<div>
-        <BootstrapTable
-          keyField='id'
-          data={products}
-          columns={columns(products)}
-          filter={filterFactory()}
-          pagination={paginationFactory()} />
-      </div>)}
+    <Row>
+      <Colxx className="mb-12">
+
+        <Card className="mb-4">
+          <CardBody>
+            <CardTitle>
+              SOME DATA
+            </CardTitle>
+            {loading ? <h1 style={{ textAlign: 'center' }}>Loading...</h1> :
+              (<BootstrapTable
+                keyField='id'
+                data={products}
+                columns={columns(products)}
+                filter={filterFactory()}
+                pagination={paginationFactory()} />
+              )}
+          </CardBody>
+        </Card>
+
+      </Colxx>
+    </Row>
     <Row>
       <Colxx lg="4" md="6" className="mb-4">
         <GradientWithRadialProgressCard

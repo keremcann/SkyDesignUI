@@ -1,16 +1,35 @@
+import React, { PureComponent } from 'react'
 import { Comparator, selectFilter, textFilter } from "react-bootstrap-table2-filter"
 import { ReducerHelper } from "./ReducerHelper"
 
 export class ColumnBuilder {
 
-    result = {}
+    result = {
+        headerFormatter: function priceFormatter(column, colIndex, { sortElement, filterElement }) {
+            return (
+                <div className='hovered-title'>
+                    <div>{column.text} {sortElement}</div>
+                    {filterElement}
+                </div>
+            );
+        }
+    }
     constructor(dataField, text) {
         this.result.dataField = dataField;
         this.result.text = text;
     }
 
     sortable() {
-        this.result.sort = true;
+        this.result = {
+            ...this.result,
+            sort: true,
+            sortCaret: (order, column) => {
+                if (!order) return (<>•</>);
+                else if (order === 'asc') return (<>▼</>);
+                else if (order === 'desc') return (<>▲</>);
+                return null;
+            }
+        }
         return this;
     }
     isIdField() {

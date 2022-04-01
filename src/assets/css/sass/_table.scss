@@ -1,7 +1,41 @@
-thead {
-  tr {
-    th {
-        
+table {
+  width: 100%;
+  thead {
+    color: gray;
+    letter-spacing: 1px;
+    tr {
+      th {
+        white-space: nowrap;
+        position: relative;
+        min-width: 200px;
+        text-align: center;
+        &:first-child,
+        &:last-child {
+          min-width: auto;
+        }
+      }
     }
+  }
+  tbody {
+    tr {
+      td {
+        white-space: nowrap;
+        &:first-child {
+          text-align: center;
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+}
+.react-bootstrap-table {
+  overflow: auto;
+}
+
+.hovered-title {
+  display: flex;
+  flex-direction: column;
+  &:hover {
+    cursor: pointer;
   }
 }
