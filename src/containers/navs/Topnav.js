@@ -37,6 +37,22 @@ import TopnavDarkSwitch from './Topnav.DarkSwitch';
 import { getDirection, setDirection } from '../../helpers/Utils';
 import { useStore } from '../../app/stores/store';
 
+import {
+  defaultColor,
+  themeColorStorageKey,
+} from '../../constants/defaultValues';
+
+const isDark = () => {
+  let color = localStorage.getItem(themeColorStorageKey)
+    ? localStorage.getItem(themeColorStorageKey)
+    : defaultColor;
+  if (color.indexOf('dark') > -1) {
+    return true;
+  } else if (color.indexOf('light') > -1) {
+    return false;
+  }
+};
+
 const TopNav = ({
   intl,
   history,
@@ -280,7 +296,9 @@ const TopNav = ({
       <a className="navbar-logo" href="/">
         {/* <span className="logo-mobile d-block d-xs-none" /> */}
         <div style={{ display: 'flex', alignSelf: 'center' }}>
-          <img src='/assets/img/logo.png' style={{ height: '42px' }} />
+
+          <img src={`/assets/img/logo${isDark() ? '-black' : ''}.png`} style={{ height: '42px' }} />
+
           <h1 style={{ padding: '5px' }}>Sky<b>Design</b></h1>
         </div>
         {/* <span className="logo d-none d-xs-block" /> */}

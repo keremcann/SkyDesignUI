@@ -1,465 +1,473 @@
 const data = [
   {
-    id: 'dashboard',
-    icon: 'iconsminds-air-balloon-1',
-    label: 'menu.dashboard',
-    to: '/app/dashboard/start',
-    subs: [
-      {
-        icon: 'simple-icon-book-open',
-        label: 'menu.dashboard.start',
-        to: '/app/dashboard/start',
-      },
-    ],
+    pageId: 'dashboard',
+    pageIcon: 'iconsminds-air-balloon-1',
+    pageName: 'menu.dashboard',
+    pageUrl: '/app/dashboard',
   },
-  {
-    icon: 'iconsminds-plug-in',
-    label: 'menu.diyagramlar',
-    to: '/app/dashboard/diyagramlar',
-    subs: [
-      {
-        icon: 'iconsminds-plug-in',
-        label: 'menu.diyagramlar.altyapi-mimarisi',
-        to: '/app/dashboard/diyagramlar/altyapi-mimarisi',
-      },
-      {
-        icon: 'iconsminds-plug-in',
-        label: 'menu.diyagramlar.uygulama-mimarisi',
-        to: '/app/dashboard/diyagramlar/uygulama-mimarisi',
-      },
-    ]
-  },
-  {
-    id: 'strateji-katalogu',
-    icon: 'iconsminds-atom',
-    label: 'menu.strateji-katalogu',
-    to: '/app/strateji-katalogu',
-    subs: [
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.strateji-katalogu.vizyon',
-        to: '/app/strateji-katalogu/vizyon'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.strateji-katalogu.misyon',
-        to: '/app/strateji-katalogu/misyon'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.strateji-katalogu.stratejik-donem',
-        to: '/app/strateji-katalogu/stratejik-donem'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.strateji-katalogu.odak-alanlari',
-        to: '/app/strateji-katalogu/odak-alanlari'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.strateji-katalogu.stratejik-perspektif',
-        to: '/app/strateji-katalogu/stratejik-perspektif'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.strateji-katalogu.stratejik-hedefler',
-        to: '/app/strateji-katalogu/stratejik-hedefler'
-      },
+  // {
+  //   pageId: 'diyagramlar',
+  //   pageIcon: 'iconsminds-plug-in',
+  //   pageName: 'menu.diyagramlar',
+  //   pageUrl: '/app/dashboard/diyagramlar',
+  // subs: [
+  //   {
+  //     pageIcon: 'iconsminds-plug-in',
+  //     pageName: 'menu.diyagramlar.altyapi-mimarisi',
+  //     pageUrl: '/app/dashboard/diyagramlar/altyapi-mimarisi',
+  //   },
+  //   {
+  //     pageIcon: 'iconsminds-plug-in',
+  //     pageName: 'menu.diyagramlar.uygulama-mimarisi',
+  //     pageUrl: '/app/dashboard/diyagramlar/uygulama-mimarisi',
+  //   },
+  // ]
+  // },
+  // {
+  //   pageId: 'strateji-katalogu',
+  //   pageIcon: 'iconsminds-atom',
+  //   pageName: 'menu.strateji-katalogu',
+  //   pageUrl: '/app/strateji-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.strateji-katalogu.vizyon',
+  //       pageUrl: '/app/strateji-katalogu/vizyon',
+  //       subs: []
+  //     }
+  //   ],
+  // },
+  // {
+  //   pageId: 'strateji-katalogu',
+  //   pageIcon: 'iconsminds-atom',
+  //   pageName: 'menu.strateji-katalogu',
+  //   pageUrl: '/app/strateji-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.strateji-katalogu.vizyon',
+  //       pageUrl: '/app/strateji-katalogu/vizyon'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.strateji-katalogu.misyon',
+  //       pageUrl: '/app/strateji-katalogu/misyon'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.strateji-katalogu.stratejik-donem',
+  //       pageUrl: '/app/strateji-katalogu/stratejik-donem'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.strateji-katalogu.odak-alanlari',
+  //       pageUrl: '/app/strateji-katalogu/odak-alanlari'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.strateji-katalogu.stratejik-perspektif',
+  //       pageUrl: '/app/strateji-katalogu/stratejik-perspektif'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.strateji-katalogu.stratejik-hedefler',
+  //       pageUrl: '/app/strateji-katalogu/stratejik-hedefler'
+  //     },
 
-    ]
-  },
+  //   ]
+  // },
 
-  {
-    id: 'portfoy-katalogu',
-    icon: 'iconsminds-band-aid',
-    label: 'menu.portfoy-katalogu',
-    to: '/app/portfoy-katalogu',
-    subs: [
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.portfoy-katalogu.portfoy-hizalama',
-        to: '/app/portfoy-katalogu/portfoy-hizalama'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.portfoy-katalogu.programlar',
-        to: '/app/portfoy-katalogu/programlar'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.portfoy-katalogu.projeler',
-        to: '/app/portfoy-katalogu/projeler'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.portfoy-katalogu.talepler',
-        to: '/app/portfoy-katalogu/talepler'
-      },
+  // {
+  //   pageId: 'portfoy-katalogu',
+  //   pageIcon: 'iconsminds-band-aid',
+  //   pageName: 'menu.portfoy-katalogu',
+  //   pageUrl: '/app/portfoy-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.portfoy-katalogu.portfoy-hizalama',
+  //       pageUrl: '/app/portfoy-katalogu/portfoy-hizalama'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.portfoy-katalogu.programlar',
+  //       pageUrl: '/app/portfoy-katalogu/programlar'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.portfoy-katalogu.projeler',
+  //       pageUrl: '/app/portfoy-katalogu/projeler'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.portfoy-katalogu.talepler',
+  //       pageUrl: '/app/portfoy-katalogu/talepler'
+  //     },
 
-    ]
-  },
+  //   ]
+  // },
 
-  {
-    id: 'is-katalogu',
-    icon: 'iconsminds-bio-hazard',
-    label: 'menu.is-katalogu',
-    to: '/app/is-katalogu',
-    subs: [
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.is-katalogu.is-kabiliyetleri',
-        to: '/app/is-katalogu/is-kabiliyetleri'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.is-katalogu.urunler',
-        to: '/app/is-katalogu/urunler'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.is-katalogu.organizasyon-mimarisi',
-        to: '/app/is-katalogu/organizasyon-mimarisi',
-        subs: [
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.is-katalogu.organizasyon-mimarisi.kisiler',
-            to: '/app/is-katalogu/organizasyon-mimarisi/kisiler'
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.is-katalogu.organizasyon-mimarisi.roller',
-            to: '/app/is-katalogu/organizasyon-mimarisi/roller'
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.is-katalogu.organizasyon-mimarisi.ortamlar',
-            to: '/app/is-katalogu/organizasyon-mimarisi/ortamlar'
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.is-katalogu.organizasyon-mimarisi.lokasyonlar',
-            to: '/app/is-katalogu/organizasyon-mimarisi/lokasyonlar'
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.is-katalogu.organizasyon-mimarisi.organizasyon-birimleri',
-            to: '/app/is-katalogu/organizasyon-mimarisi/organizasyon-birimleri'
-          },
+  // {
+  //   pageId: 'is-katalogu',
+  //   pageIcon: 'iconsminds-bio-hazard',
+  //   pageName: 'menu.is-katalogu',
+  //   pageUrl: '/app/is-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.is-katalogu.is-kabiliyetleri',
+  //       pageUrl: '/app/is-katalogu/is-kabiliyetleri'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.is-katalogu.urunler',
+  //       pageUrl: '/app/is-katalogu/urunler'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.is-katalogu.organizasyon-mimarisi',
+  //       pageUrl: '/app/is-katalogu/organizasyon-mimarisi',
+  //       subs: [
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.is-katalogu.organizasyon-mimarisi.kisiler',
+  //           pageUrl: '/app/is-katalogu/organizasyon-mimarisi/kisiler'
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.is-katalogu.organizasyon-mimarisi.roller',
+  //           pageUrl: '/app/is-katalogu/organizasyon-mimarisi/roller'
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.is-katalogu.organizasyon-mimarisi.ortamlar',
+  //           pageUrl: '/app/is-katalogu/organizasyon-mimarisi/ortamlar'
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.is-katalogu.organizasyon-mimarisi.lokasyonlar',
+  //           pageUrl: '/app/is-katalogu/organizasyon-mimarisi/lokasyonlar'
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.is-katalogu.organizasyon-mimarisi.organizasyon-birimleri',
+  //           pageUrl: '/app/is-katalogu/organizasyon-mimarisi/organizasyon-birimleri'
+  //         },
 
-        ]
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.is-katalogu.kanallar',
-        to: '/app/is-katalogu/kanallar'
-      },
+  //       ]
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.is-katalogu.kanallar',
+  //       pageUrl: '/app/is-katalogu/kanallar'
+  //     },
 
-    ]
-  },
+  //   ]
+  // },
 
-  {
-    id: 'uygulama-katalogu',
-    icon: 'iconsminds-biotech',
-    label: 'menu.uygulama-katalogu',
-    to: '/app/uygulama-katalogu',
-    subs: [
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.uygulama-katalogu.uygulamalar',
-        to: '/app/uygulama-katalogu/uygulamalar'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.uygulama-katalogu.uygulama-modulleri',
-        to: '/app/uygulama-katalogu/uygulama-modulleri'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.uygulama-katalogu.uygulama-bilesenleri',
-        to: '/app/uygulama-katalogu/uygulama-bilesenleri'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.uygulama-katalogu.uygulama-servisleri',
-        to: '/app/uygulama-katalogu/uygulama-servisleri'
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.uygulama-katalogu.uygulama-alanlari',
-        to: '/app/uygulama-katalogu/uygulama-alanlari'
-      },
+  // {
+  //   pageId: 'uygulama-katalogu',
+  //   pageIcon: 'iconsminds-biotech',
+  //   pageName: 'menu.uygulama-katalogu',
+  //   pageUrl: '/app/uygulama-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.uygulama-katalogu.uygulamalar',
+  //       pageUrl: '/app/uygulama-katalogu/uygulamalar'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.uygulama-katalogu.uygulama-modulleri',
+  //       pageUrl: '/app/uygulama-katalogu/uygulama-modulleri'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.uygulama-katalogu.uygulama-bilesenleri',
+  //       pageUrl: '/app/uygulama-katalogu/uygulama-bilesenleri'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.uygulama-katalogu.uygulama-servisleri',
+  //       pageUrl: '/app/uygulama-katalogu/uygulama-servisleri'
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.uygulama-katalogu.uygulama-alanlari',
+  //       pageUrl: '/app/uygulama-katalogu/uygulama-alanlari'
+  //     },
 
-    ]
-  },
+  //   ]
+  // },
 
-  {
-    id: 'veri-katalogu',
-    icon: 'iconsminds-brain',
-    label: 'menu.veri-katalogu',
-    to: '/app/veri-katalogu',
-    subs: [
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.veri-katalogu.fiziksel-veri-modelleme',
-        to: '/app/veri-katalogu/fiziksel-veri-modelleme',
-        subs: [
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.fiziksel-veri-modelleme.veri-ogeleri',
-            to: '/app/veri-katalogu/fiziksel-veri-modelleme/veri-ogeleri',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.fiziksel-veri-modelleme.veritabanlari',
-            to: '/app/veri-katalogu/fiziksel-veri-modelleme/veritabanlari',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.fiziksel-veri-modelleme.semalar',
-            to: '/app/veri-katalogu/fiziksel-veri-modelleme/semalar',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.fiziksel-veri-modelleme.tablolar',
-            to: '/app/veri-katalogu/fiziksel-veri-modelleme/tablolar',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.fiziksel-veri-modelleme.veri-sozlugu',
-            to: '/app/veri-katalogu/fiziksel-veri-modelleme/veri-sozlugu',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.fiziksel-veri-modelleme.veri-tipleri',
-            to: '/app/veri-katalogu/fiziksel-veri-modelleme/veri-tipleri',
-          },
+  // {
+  //   pageId: 'veri-katalogu',
+  //   pageIcon: 'iconsminds-brain',
+  //   pageName: 'menu.veri-katalogu',
+  //   pageUrl: '/app/veri-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.veri-katalogu.fiziksel-veri-modelleme',
+  //       pageUrl: '/app/veri-katalogu/fiziksel-veri-modelleme',
+  //       subs: [
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.fiziksel-veri-modelleme.veri-ogeleri',
+  //           pageUrl: '/app/veri-katalogu/fiziksel-veri-modelleme/veri-ogeleri',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.fiziksel-veri-modelleme.veritabanlari',
+  //           pageUrl: '/app/veri-katalogu/fiziksel-veri-modelleme/veritabanlari',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.fiziksel-veri-modelleme.semalar',
+  //           pageUrl: '/app/veri-katalogu/fiziksel-veri-modelleme/semalar',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.fiziksel-veri-modelleme.tablolar',
+  //           pageUrl: '/app/veri-katalogu/fiziksel-veri-modelleme/tablolar',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.fiziksel-veri-modelleme.veri-sozlugu',
+  //           pageUrl: '/app/veri-katalogu/fiziksel-veri-modelleme/veri-sozlugu',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.fiziksel-veri-modelleme.veri-tipleri',
+  //           pageUrl: '/app/veri-katalogu/fiziksel-veri-modelleme/veri-tipleri',
+  //         },
 
-        ]
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.veri-katalogu.raporlar',
-        to: '/app/veri-katalogu/raporlar'
-      },
+  //       ]
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.veri-katalogu.raporlar',
+  //       pageUrl: '/app/veri-katalogu/raporlar'
+  //     },
 
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.veri-katalogu.is-sozlugu',
-        to: '/app/veri-katalogu/is-sozlugu',
-        subs: [
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.is-sozlugu.veri-politikalari',
-            to: '/app/veri-katalogu/is-sozlugu/veri-politikalari',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.is-sozlugu.terimler',
-            to: '/app/veri-katalogu/is-sozlugu/terimler',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.is-sozlugu.mevzuatlar',
-            to: '/app/veri-katalogu/is-sozlugu/mevzuatlar',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.is-sozlugu.veri-standartlari',
-            to: '/app/veri-katalogu/is-sozlugu/veri-standartlari',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.is-sozlugu.is-kurallari',
-            to: '/app/veri-katalogu/is-sozlugu/is-kurallari',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.veri-katalogu.is-sozlugu.kisaltmalar',
-            to: '/app/veri-katalogu/is-sozlugu/kisaltmalar',
-          },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.veri-katalogu.is-sozlugu',
+  //       pageUrl: '/app/veri-katalogu/is-sozlugu',
+  //       subs: [
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.is-sozlugu.veri-politikalari',
+  //           pageUrl: '/app/veri-katalogu/is-sozlugu/veri-politikalari',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.is-sozlugu.terimler',
+  //           pageUrl: '/app/veri-katalogu/is-sozlugu/terimler',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.is-sozlugu.mevzuatlar',
+  //           pageUrl: '/app/veri-katalogu/is-sozlugu/mevzuatlar',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.is-sozlugu.veri-standartlari',
+  //           pageUrl: '/app/veri-katalogu/is-sozlugu/veri-standartlari',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.is-sozlugu.is-kurallari',
+  //           pageUrl: '/app/veri-katalogu/is-sozlugu/is-kurallari',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.veri-katalogu.is-sozlugu.kisaltmalar',
+  //           pageUrl: '/app/veri-katalogu/is-sozlugu/kisaltmalar',
+  //         },
 
-        ]
-      },
+  //       ]
+  //     },
 
 
 
-    ]
-  },
+  //   ]
+  // },
 
-  {
-    id: 'teknoloji-katalogu',
-    icon: 'iconsminds-physics',
-    label: 'menu.teknoloji-katalogu',
-    to: '/app/teknoloji-katalogu',
-    subs: [
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari',
-        to: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari',
-        subs: [
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.sunucular',
-            to: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/sunucular',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.sunucu-gruplari',
-            to: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/sunucu-gruplari',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.switch',
-            to: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/switch',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.router',
-            to: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/router',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.depolama-aygitlari',
-            to: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/depolama-aygitlari',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.istemciler',
-            to: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/istemciler',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.sertifikalar',
-            to: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/sertifikalar',
-          },
+  // {
+  //   pageId: 'teknoloji-katalogu',
+  //   pageIcon: 'iconsminds-physics',
+  //   pageName: 'menu.teknoloji-katalogu',
+  //   pageUrl: '/app/teknoloji-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari',
+  //       pageUrl: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari',
+  //       subs: [
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.sunucular',
+  //           pageUrl: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/sunucular',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.sunucu-gruplari',
+  //           pageUrl: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/sunucu-gruplari',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.switch',
+  //           pageUrl: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/switch',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.router',
+  //           pageUrl: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/router',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.depolama-aygitlari',
+  //           pageUrl: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/depolama-aygitlari',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.istemciler',
+  //           pageUrl: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/istemciler',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.fiziksel-teknoloji-varliklari.sertifikalar',
+  //           pageUrl: '/app/teknoloji-katalogu/fiziksel-teknoloji-varliklari/sertifikalar',
+  //         },
 
-        ]
-      },
+  //       ]
+  //     },
 
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari',
-        to: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari',
-        subs: [
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari.ipac',
-            to: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari/ipac',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari.tipa',
-            to: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari/tipa',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari.altyapi-platform-bilesenleri',
-            to: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari/altyapi-platform-bilesenleri',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari.teknolojik-altyapi-platformlari',
-            to: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari/teknolojik-altyapi-platformlari',
-          },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari',
+  //       pageUrl: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari',
+  //       subs: [
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari.ipac',
+  //           pageUrl: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari/ipac',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari.tipa',
+  //           pageUrl: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari/tipa',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari.altyapi-platform-bilesenleri',
+  //           pageUrl: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari/altyapi-platform-bilesenleri',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.altyapi-teknoloji-varliklari.teknolojik-altyapi-platformlari',
+  //           pageUrl: '/app/teknoloji-katalogu/altyapi-teknoloji-varliklari/teknolojik-altyapi-platformlari',
+  //         },
 
-        ]
-      },
+  //       ]
+  //     },
 
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.teknoloji-katalogu.teknolojik-portfoyu',
-        to: '/app/teknoloji-katalogu/teknolojik-portfoyu',
-        subs: [
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.teknolojik-portfoyu.mantiksal-teknoloji-bilesenleri',
-            to: '/app/teknoloji-katalogu/teknolojik-portfoyu/mantiksal-teknoloji-bilesenleri',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.teknolojik-portfoyu.fiziksel-teknoloji-bilesenleri',
-            to: '/app/teknoloji-katalogu/teknolojik-portfoyu/fiziksel-teknoloji-bilesenleri',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.teknolojik-portfoyu.standart-teknoloji-bilesenleri',
-            to: '/app/teknoloji-katalogu/teknolojik-portfoyu/standart-teknoloji-bilesenleri',
-          },
-          {
-            icon: 'simple-icon-arrow-right',
-            label: 'menu.teknoloji-katalogu.teknolojik-portfoyu.ftb-yasam-dongusu-yonetimi',
-            to: '/app/teknoloji-katalogu/teknolojik-portfoyu/ftb-yasam-dongusu-yonetimi',
-          },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.teknoloji-katalogu.teknolojik-portfoyu',
+  //       pageUrl: '/app/teknoloji-katalogu/teknolojik-portfoyu',
+  //       subs: [
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.teknolojik-portfoyu.mantiksal-teknoloji-bilesenleri',
+  //           pageUrl: '/app/teknoloji-katalogu/teknolojik-portfoyu/mantiksal-teknoloji-bilesenleri',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.teknolojik-portfoyu.fiziksel-teknoloji-bilesenleri',
+  //           pageUrl: '/app/teknoloji-katalogu/teknolojik-portfoyu/fiziksel-teknoloji-bilesenleri',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.teknolojik-portfoyu.standart-teknoloji-bilesenleri',
+  //           pageUrl: '/app/teknoloji-katalogu/teknolojik-portfoyu/standart-teknoloji-bilesenleri',
+  //         },
+  //         {
+  //           pageIcon: 'simple-icon-arrow-right',
+  //           pageName: 'menu.teknoloji-katalogu.teknolojik-portfoyu.ftb-yasam-dongusu-yonetimi',
+  //           pageUrl: '/app/teknoloji-katalogu/teknolojik-portfoyu/ftb-yasam-dongusu-yonetimi',
+  //         },
 
-        ]
-      }
+  //       ]
+  //     }
 
-    ]
-  },
+  //   ]
+  // },
 
-  {
-    id: 'surec-katalogu',
-    icon: 'iconsminds-plaster',
-    label: 'menu.surec-katalogu',
-    to: '/app/surec-katalogu',
-    subs: [
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.surec-katalogu.ana-surec-gruplari',
-        to: '/app/surec-katalogu/ana-surec-gruplari',
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.surec-katalogu.surec-gruplari',
-        to: '/app/surec-katalogu/surec-gruplari',
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.surec-katalogu.alt-surec-gruplari',
-        to: '/app/surec-katalogu/alt-surec-gruplari',
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.surec-katalogu.surecler',
-        to: '/app/surec-katalogu/surecler',
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.surec-katalogu.gorevler',
-        to: '/app/surec-katalogu/gorevler',
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.surec-katalogu.havuzlar',
-        to: '/app/surec-katalogu/havuzlar',
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.surec-katalogu.kulvarlar',
-        to: '/app/surec-katalogu/kulvarlar',
-      },
+  // {
+  //   pageId: 'surec-katalogu',
+  //   pageIcon: 'iconsminds-plaster',
+  //   pageName: 'menu.surec-katalogu',
+  //   pageUrl: '/app/surec-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.surec-katalogu.ana-surec-gruplari',
+  //       pageUrl: '/app/surec-katalogu/ana-surec-gruplari',
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.surec-katalogu.surec-gruplari',
+  //       pageUrl: '/app/surec-katalogu/surec-gruplari',
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.surec-katalogu.alt-surec-gruplari',
+  //       pageUrl: '/app/surec-katalogu/alt-surec-gruplari',
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.surec-katalogu.surecler',
+  //       pageUrl: '/app/surec-katalogu/surecler',
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.surec-katalogu.gorevler',
+  //       pageUrl: '/app/surec-katalogu/gorevler',
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.surec-katalogu.havuzlar',
+  //       pageUrl: '/app/surec-katalogu/havuzlar',
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.surec-katalogu.kulvarlar',
+  //       pageUrl: '/app/surec-katalogu/kulvarlar',
+  //     },
 
-    ]
-  },
+  //   ]
+  // },
 
-  {
-    id: 'risk-katalogu',
-    icon: 'iconsminds-pulse',
-    label: 'menu.risk-katalogu',
-    to: '/app/risk-katalogu',
-    subs: [
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.risk-katalogu.bt-riskleri',
-        to: '/app/risk-katalogu/bt-riskleri',
-      },
-      {
-        icon: 'simple-icon-arrow-right',
-        label: 'menu.risk-katalogu.is-riskleri',
-        to: '/app/risk-katalogu/is-riskleri',
-      },
+  // {
+  //   pageId: 'risk-katalogu',
+  //   pageIcon: 'iconsminds-pulse',
+  //   pageName: 'menu.risk-katalogu',
+  //   pageUrl: '/app/risk-katalogu',
+  //   subs: [
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.risk-katalogu.bt-riskleri',
+  //       pageUrl: '/app/risk-katalogu/bt-riskleri',
+  //     },
+  //     {
+  //       pageIcon: 'simple-icon-arrow-right',
+  //       pageName: 'menu.risk-katalogu.is-riskleri',
+  //       pageUrl: '/app/risk-katalogu/is-riskleri',
+  //     },
 
-    ]
-  }
+  //   ]
+  // }
 ];
 export default data;
