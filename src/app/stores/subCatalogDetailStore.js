@@ -1,27 +1,16 @@
-import { makeAutoObservable, runInAction } from 'mobx';
+import { makeAutoObservable, makeObservable, observable, runInAction } from 'mobx';
 import agent from '../api/agent';
-export default class SubCatalogDetailStore {
+import BaseCRUDStore from '../base/BaseCRUDStore';
+export default class SubCatalogDetailStore extends BaseCRUDStore {
     data = [];
     loading = true;
 
-    updateModalOpen = false;
-    addModalOpen = false;
-    deleteModalOpen = false;
-
-    toggleAddModal = () => {
-        this.addModalOpen = !this.addModalOpen;
-    }
-
-    toggleUpdateModal = () => {
-        this.updateModalOpen = !this.updateModalOpen;
-    }
-
-    toggleDeleteModal = () => {
-        this.deleteModalOpen = !this.deleteModalOpen;
-    }
-
     constructor() {
-        makeAutoObservable(this);
+        super();
+        makeObservable(this, {
+            data: observable,
+            loading: observable
+        });
     }
 
     loadSubCatalogDetailsBySubCatalogId = async (subCatalogId) => {
@@ -71,7 +60,7 @@ export default class SubCatalogDetailStore {
         try {
             const result = await agent.SubCatalogDetails.delete(catalogDetailId);
         } catch (error) {
-            
+
         }
     }
 }

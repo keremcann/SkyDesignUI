@@ -13,7 +13,7 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(async response => {
     return response;
 }, (error) => {
-    if (error.response == undefined) {
+    if (error.response === undefined) {
         Notifier.error(error.message);
         return Promise.reject(error);
     }
@@ -40,10 +40,10 @@ axios.interceptors.response.use(async response => {
             }
             break;
         case 404:
-            window.location.href = '/not-found';
+            // window.location.href = '/not-found';
             break;
         case 500:
-            window.location.href = '/server-error';
+            // window.location.href = '/server-error';
             break;
     }
     return Promise.reject(error);
@@ -77,11 +77,24 @@ const Account = {
 
 }
 
+const Dashboard = {
+    getMenus: () => requests.get('uiManagement/getMenus'),
+
+}
+
+const Page = {
+    getAllPages: () => requests.get('page/getAllPages'),
+    createPage: (data) => requests.post('page/createPage', data),
+    getPageDetail: (level1Menu, level2Menu, level3Menu) => requests.get('page/getPageDetail?Level1Menu=' + level1Menu + '&Level2Menu=' + level2Menu + '&Level3Menu=' + level3Menu),
+
+}
+
 const agent = {
     Catalogs,
     SubCatalogDetails,
     Account,
-
+    Dashboard,
+    Page
 }
 
 export default agent;
