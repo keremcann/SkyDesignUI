@@ -8,8 +8,10 @@ const LoadBalancerNode = ({ data, isConnectable }) => {
             <Handle
                 type="target"
                 position="left"
-                style={{ background: '#555' }}
-                onConnect={(params) => console.log('handle onConnect', params)}
+                style={{ background: '#CCC' }}
+                onConnect={(params) => {
+                    console.log('handle onConnect', params);
+                }}
                 isConnectable={isConnectable}
             />
             <Handle

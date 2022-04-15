@@ -13,6 +13,8 @@ import _ from 'lodash';
 import { ColumnBuilder } from '../../../app/utils/ColumnBuilder';
 // import products from './datas';
 import axios from 'axios';
+import SkyTable from '../../../app/utils/SkyTable/SkyTable';
+import SkyTableColumnBuilder from '../../../app/utils/SkyTable/SkyTableColumnBuilder';
 
 
 const columns = (products) => [
@@ -47,6 +49,7 @@ const columns = (products) => [
 ];
 
 const Start = () => {
+
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
@@ -71,6 +74,36 @@ const Start = () => {
             <CardTitle>
               SOME DATA
             </CardTitle>
+            {
+              <SkyTable columns={[
+                new SkyTableColumnBuilder('id', "IDS HERE").withNumberRangeFilter().withFormat(({ row }) =>
+                  <button onClick={() => {
+                    alert(JSON.stringify(row.original))
+                  }}>{row.original.id}</button>
+                ).build(),
+                new SkyTableColumnBuilder('random1', "RANDOMMMM~!!").withTextFilter().build(),
+                new SkyTableColumnBuilder('random2', "RANDOMMMM 2 ~!!").withTextFilter(true).build(),
+                {
+                  Header: 'Some custom stuff here',
+                  Cell: ({ row }) => {
+                    return <button onClick={() => {
+                      alert(JSON.stringify(row.original))
+                    }}>Click</button>;
+                  }
+                },
+                new SkyTableColumnBuilder('random3', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random4', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random5', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random6', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random7', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random8', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random9', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random10', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random11', 'Random 3').withSelectFilter().build(),
+                new SkyTableColumnBuilder('random12', 'Random 3').withSelectFilter().build(),
+              ]}
+                data={products} />
+            }
             {loading ? <h1 style={{ textAlign: 'center' }}>Loading...</h1> :
               (<BootstrapTable
                 keyField='id'

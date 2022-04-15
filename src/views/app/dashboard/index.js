@@ -8,6 +8,13 @@ const Start = React.lazy(() =>
 const Diyagramlar = React.lazy(() =>
   import('./Diyagramlar')
 );
+const UygulamaMimarisi = React.lazy(() =>
+  import('./Diyagramlar/uygulama-mimarisi')
+);
+const AltyapiMimarisi = React.lazy(() =>
+  import('./Diyagramlar/altyapi-mimarisi')
+);
+
 
 const Dashboard = ({ match }) => (
   <Suspense fallback={<div className="loading" />}>
@@ -21,6 +28,7 @@ const Dashboard = ({ match }) => (
         path={`${match.url}/diyagramlar`}
         render={(props) => <Diyagramlar {...props} />}
       />
+      
       <Redirect to="/error" />
     </Switch>
   </Suspense>
