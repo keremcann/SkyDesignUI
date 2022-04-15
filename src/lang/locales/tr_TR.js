@@ -41,6 +41,21 @@ module.exports = {
   'menu.search': 'Search',
   'menu.docs': 'Docs',
   'menu.blank-page': 'Blank Page',
+  'menu.ayarlar': 'Ayarlar',
+  'menu.something-else': 'sth else',
+  'menu.something-big-else': 'sth big else',
+  'menu.is-katalogu.is-kabiliyetleri2': 'is kabiliyetleri 2 deneme',
+  'menu.something-else.different': 'sth different',
+  'menu.sayfa-tanimi': 'sayfa tanimi',
+  
+  /* Settings Page */
+  'menu.ayarlar.kullanici-tanimi': 'Kullanıcı tanımı',
+  'menu.ayarlar.rol-tanimi': 'Rol tanımı',
+  'menu.ayarlar.yetkilendirme': 'Yetkilendirme',
+  'menu.ayarlar.yetkilendirme.sayfa-yetkilendirme': 'Sayfa yetkilendirme',
+  'menu.ayarlar.yetkilendirme.rol-yetkilendirme': 'Rol yetkilendirme',
+  'menu.ayarlar.sayfa-tanimi': 'Sayfa tanımı',
+
 
   /* 04.Error Page */
   'pages.add-new': 'Yeni kayıt',
@@ -204,7 +219,7 @@ module.exports = {
   'menu.fiziksel-teknoloji-bilesenleri': 'Fiziksel teknoloji bileşenleri',
   'menu.standart-teknoloji-bilesenleri': 'Standart teknoloji bileşenleri',
   'menu.ftb-yasam-dongusu-yonetimi': 'FTB Yaşam döngüsü yönetimi',
-  
+
   'menu.ana-surec-gruplari': 'Ana süreç grupları',
   'menu.surec-gruplari': 'Süreç grupları',
   'menu.alt-surec-gruplari': 'Alt süreç grupları',
