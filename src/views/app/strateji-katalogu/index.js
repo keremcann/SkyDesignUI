@@ -17,7 +17,7 @@ const StratejikPerspektif = React.lazy(() =>
     import('./stratejik-perspektif')
 );
 const Vizyon = React.lazy(() =>
-    import('./vizyon')
+    import('./vizyon2')
 );
 
 const RiskKatalogu = ({ match }) => (

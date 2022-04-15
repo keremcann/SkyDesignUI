@@ -7,6 +7,10 @@ import AppLayout from '../../layout/AppLayout';
 const Dashboard = React.lazy(() =>
   import('./dashboard')
 );
+
+const Diyagramlar = React.lazy(() =>
+  import('./Diyagramlar')
+);
 const BlankPage = React.lazy(() =>
   import('./blank-page')
 );
@@ -35,22 +39,66 @@ const VeriKatalogu = React.lazy(() =>
   import('./veri-katalogu')
 );
 
+const GenericMenu = React.lazy(() =>
+  import('./generic-menu-content')
+);
+
+const Ayarlar = React.lazy(() =>
+  import('./ayarlar')
+);
+
 const App = ({ match }) => {
+
+  const menu = [
+    {
+
+    }
+  ]
+
   return (
     <AppLayout>
       <div className="dashboard-wrapper">
         <Suspense fallback={<div className="loading" />}>
           <Switch>
             <Redirect exact from={`${match.url}/`} to={`${match.url}/dashboard`} />
+
             <Route
               path={`${match.url}/dashboard`}
               render={(props) => <Dashboard {...props} />}
+            />
+            <Route
+              path={`${match.url}/ayarlar`}
+              render={(props) => <Ayarlar {...props} />}
+            />
+            <Route
+              path={`${match.url}/strateji-katalogu`}
+              render={(props) => <StratejiKatalogu {...props} />}
+            />
+            <Route
+              path={`${match.url}/diyagramlar`}
+              render={(props) => <Diyagramlar {...props} />}
+            />
+
+            <Route
+              exact
+              path={[
+                `${match.url}/:Level1Menu`,
+                `${match.url}/:Level1Menu/:Level2Menu`,
+                `${match.url}/:Level1Menu/:Level2Menu/:Level3Menu`,
+              ]}
+              // render={(props) => <GenericMenu {...props} />}
+              component={GenericMenu}
             />
             <Route
               path={`${match.url}/blank-page`}
               render={(props) => <BlankPage {...props} />}
             />
 
+            {/* <Route
+              path={`${match.url}/genericmenu`}
+              render={(props) => <GenericMenu {...props} />}
+            /> */}
+            {/* 
             <Route
               path={`${match.url}/is-katalogu`}
               render={(props) => <IsKatalogu {...props} />}
@@ -82,7 +130,7 @@ const App = ({ match }) => {
             <Route
               path={`${match.url}/veri-katalogu`}
               render={(props) => <VeriKatalogu {...props} />}
-            />
+            /> */}
 
             <Redirect to="/error" />
           </Switch>
