@@ -1,6 +1,6 @@
 // import { makeAutoObservable } from "mobx";
 
-import { makeObservable, observable } from "mobx";
+import { makeObservable, observable, runInAction } from "mobx";
 
 export default class BaseCRUDStore {
     updateModalOpen = false;
@@ -17,14 +17,20 @@ export default class BaseCRUDStore {
     }
 
     toggleAddModal = () => {
-        this.addModalOpen = !this.addModalOpen;
+        runInAction(() => {
+            this.addModalOpen = !this.addModalOpen;
+        })
     }
 
     toggleUpdateModal = () => {
-        this.updateModalOpen = !this.updateModalOpen;
+        runInAction(() => {
+            this.updateModalOpen = !this.updateModalOpen;
+        })
     }
 
     toggleDeleteModal = () => {
-        this.deleteModalOpen = !this.deleteModalOpen;
+        runInAction(() => {
+            this.deleteModalOpen = !this.deleteModalOpen;
+        })
     }
 }

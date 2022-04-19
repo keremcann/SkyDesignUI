@@ -87,6 +87,9 @@ const Page = {
     createPage: (data) => requests.post('page/createPage', data),
     getPageDetail: (level1Menu, level2Menu, level3Menu) => requests.get('page/getPageDetail?Level1Menu=' + level1Menu + '&Level2Menu=' + level2Menu + '&Level3Menu=' + level3Menu),
 
+    createContent: (data) => requests.post('page/addPageDetail', data),
+    updateContent: (data) => requests.post('page/updatePageDetail', data),
+    deleteContent: (id) => requests.del('page/deletePageDetail?id=' + id),
 }
 
 const agent = {

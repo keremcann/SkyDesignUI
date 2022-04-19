@@ -53,20 +53,20 @@ const Start = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const getData = async () => {
-      setLoading(true);
-      setProducts(await (await axios.get('http://localhost:18202/main/getallproducts')).data);
-      setLoading(false);
-    };
+  //   const getData = async () => {
+  //     setLoading(true);
+  //     setProducts(await (await axios.get('http://localhost:18202/main/getallproducts')).data);
+  //     setLoading(false);
+  //   };
 
-    getData();
+  //   getData();
 
-  }, []);
+  // }, []);
 
   return <>
-    <Row>
+    {/* <Row>
       <Colxx className="mb-12">
 
         <Card className="mb-4">
@@ -116,7 +116,7 @@ const Start = () => {
         </Card>
 
       </Colxx>
-    </Row>
+    </Row> */}
     <Row>
       <Colxx lg="4" md="6" className="mb-4">
         <GradientWithRadialProgressCard

@@ -270,63 +270,64 @@ function SkyTable({ columns, data, onRowSelected = (row) => { } }) {
     const firstPageRows = rows.slice(0, 10)
 
     return (
-        <div style={{ overflow: 'auto' }}>
-            <table {...getTableProps()} className='table table-bordered'>
-                <thead>
-                    {headerGroups.map(headerGroup => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map(column => (
-                                <>
-
-                                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                                        {column.render('Header')} <span>
-                                            {column.isSorted
-                                                ? column.isSortedDesc
-                                                    ? ' ▲'
-                                                    : ' ▼'
-                                                : ''}
-                                        </span>
-                                        <div>{column.canFilter ? column.render('Filter') : null}</div>
-
-                                    </th>
-                                </>
-                            ))}
+        <>
+            <div style={{ overflow: 'auto' }}>
+                <table {...getTableProps()} className='table table-bordered'>
+                    <thead>
+                        <tr>
+                            <th
+                                colSpan={visibleColumns.length}
+                                style={{
+                                    textAlign: 'left',
+                                }}
+                            >
+                                <GlobalFilter
+                                    preGlobalFilteredRows={preGlobalFilteredRows}
+                                    globalFilter={state.globalFilter}
+                                    setGlobalFilter={setGlobalFilter}
+                                />
+                            </th>
                         </tr>
-                    ))}
-                    <tr>
-                        <th
-                            colSpan={visibleColumns.length}
-                            style={{
-                                textAlign: 'left',
-                            }}
-                        >
-                            <GlobalFilter
-                                preGlobalFilteredRows={preGlobalFilteredRows}
-                                globalFilter={state.globalFilter}
-                                setGlobalFilter={setGlobalFilter}
-                            />
-                        </th>
-                    </tr>
-                </thead>
-                <tbody {...getTableBodyProps()}>
-                    {page.map((row, i) => {
-                        prepareRow(row)
-                        return (
-                            <tr {...row.getRowProps()} onClick={() => {
-                                onRowSelected(row.original);
-                                console.log(row)
-                                alert(JSON.stringify(row.original))
-                            }} style={{
-                                backgroundColor: !row.isSelected ? "transparent" : "black",
-                            }}>
-                                {row.cells.map(cell => {
-                                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                })}
+                        {headerGroups.map(headerGroup => (
+                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                {headerGroup.headers.map(column => (
+                                    <>
+
+                                        <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                            {column.render('Header')} <span>
+                                                {column.isSorted
+                                                    ? column.isSortedDesc
+                                                        ? ' ▲'
+                                                        : ' ▼'
+                                                    : ''}
+                                            </span>
+                                            <div>{column.canFilter ? column.render('Filter') : null}</div>
+
+                                        </th>
+                                    </>
+                                ))}
                             </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+                        ))}
+
+                    </thead>
+                    <tbody {...getTableBodyProps()}>
+                        {page.map((row, i) => {
+                            prepareRow(row)
+                            return (
+                                <tr {...row.getRowProps()} onClick={() => {
+                                    onRowSelected(row.original);
+                                }} style={{
+                                    backgroundColor: !row.isSelected ? "transparent" : "black",
+                                }}>
+                                    {row.cells.map(cell => {
+                                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                    })}
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
             <br />
             <div className="row pagination">
                 <div className='col-md-6' style={{ display: 'flex', alignItems: 'center', gap: '38px' }}>
@@ -384,15 +385,8 @@ function SkyTable({ columns, data, onRowSelected = (row) => { } }) {
                     </button>{' '}
                 </div>
             </div>
-
-
-
-            <div>
-                <pre>
-                    <code>{JSON.stringify(state.filters, null, 2)}</code>
-                </pre>
-            </div>
-        </div>
+            <br />
+        </>
     )
 }
 

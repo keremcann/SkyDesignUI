@@ -64,7 +64,6 @@ export default class PageStore extends BaseCRUDStore {
     }
 
     loadContent = async (level1Menu, level2Menu, level3Menu) => {
-        alert(JSON.stringify(level2Menu))
         this.loading = true;
         try {
             const content = await agent.Page.getPageDetail(level1Menu, level2Menu, level3Menu);

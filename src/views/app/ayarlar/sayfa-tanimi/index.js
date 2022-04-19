@@ -1369,7 +1369,7 @@ const SayfaTanimi = ({ match }) => {
 
                 <Col>
 
-                    Icons:<br />
+                    {/* Icons:<br />
                     <table>
                         {iconUrls.map(icon => {
                             return (<tr>
@@ -1377,12 +1377,13 @@ const SayfaTanimi = ({ match }) => {
                                 <td><i className={icon} style={{ fontSize: '24px' }} /></td>
                             </tr>)
                         })}
-                    </table>
+                    </table> */}
 
                     <select>
                         {iconUrls.map(icon => {
+                            // alert(JSON.stringify(icon))
                             return (
-                                <option value={icon}><i className={icon} style={{ fontSize: '24px' }} /> {icon}</option>)
+                                <option value={icon}><i className={icon} />{icon}</option>)
                         })}
                     </select>
 
