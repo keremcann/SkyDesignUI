@@ -87,9 +87,17 @@ const Page = {
     createPage: (data) => requests.post('page/createPage', data),
     getPageDetail: (level1Menu, level2Menu, level3Menu) => requests.get('page/getPageDetail?Level1Menu=' + level1Menu + '&Level2Menu=' + level2Menu + '&Level3Menu=' + level3Menu),
 
-    createContent: (data) => requests.post('page/addPageDetail', data),
-    updateContent: (data) => requests.post('page/updatePageDetail', data),
-    deleteContent: (id) => requests.del('page/deletePageDetail?id=' + id),
+    createContent: (data) => requests.post('page/createPageDetail', data),
+    updateContent: (data) => requests.put('page/updatePageDetail', data),
+    deleteContent: (id, tableName) => requests.del('page/deletePageDetail?id=' + id + '&tableName=' + tableName),
+}
+
+const Role = {
+    createRole: (data) => requests.post('role/createRole', data),
+    update: (data) => requests.post('role/updateRole', data),
+    delete: (roleId) => requests.post('role/deleteRole?roleId=' + roleId),
+    getAllRoles: () => requests.get('role/getAllRoles')
+
 }
 
 const agent = {
@@ -97,7 +105,8 @@ const agent = {
     SubCatalogDetails,
     Account,
     Dashboard,
-    Page
+    Page,
+    Role
 }
 
 export default agent;

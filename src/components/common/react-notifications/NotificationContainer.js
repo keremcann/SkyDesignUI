@@ -17,7 +17,6 @@ class NotificationContainer extends React.Component {
   };
 
   handleStoreChange = (notifications) => {
-    alert(JSON.stringify(notifications))
     this.setState({
       notifications,
     });

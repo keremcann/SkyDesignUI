@@ -168,9 +168,9 @@ const GenericMenuContent = ({ match }) => {
                 </SkyModal.Body>
                 <SkyModal.Footer>
                     <Button style={{ backgroundColor: 'red' }} color="secondary" type="button" onClick={async () => {
-                        // await deleteCatalogDetail(selectedItem.subCatalogDetailId);
+                        await deleteContent(selectedRow[Object.keys(selectedRow)[0]], columnList[0].tableName);
                         toggleDeleteModal();
-                        // await loadSubCatalogDetailsBySubCatalogId(subCatalogId);
+                        await loadAllContent();
                     }}>
                         Sil
                     </Button>

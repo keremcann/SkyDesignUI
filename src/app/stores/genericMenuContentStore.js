@@ -49,9 +49,9 @@ export default class GenericMenuContentStore extends BaseCRUDStore {
         }
     }
 
-    deleteContent = async (id) => {
+    deleteContent = async (id, tableName) => {
         try {
-            const content = await agent.Page.deleteContent(id);
+            const content = await agent.Page.deleteContent(id, tableName);
         } catch (error) {
             // Notifier.error('There occured an error while getting the page list');
         }

@@ -5,6 +5,7 @@ import DashboardStore from "./dashboardStore";
 import GenericMenuContentStore from "./genericMenuContentStore";
 import ModalStore from "./modalStore";
 import PageStore from "./pageStore";
+import RoleStore from "./roleStore";
 import SubCatalogDetailStore from "./subCatalogDetailStore";
 import UserStore from './userStore';
 
@@ -16,7 +17,8 @@ export const store = {
     userStore: new UserStore(),
     dashboardStore: new DashboardStore(),
     pageStore: new PageStore(),
-    genericMenuContentStore: new GenericMenuContentStore()
+    genericMenuContentStore: new GenericMenuContentStore(),
+    roleStore: new RoleStore()
 
 }
 
