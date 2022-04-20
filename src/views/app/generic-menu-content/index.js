@@ -83,10 +83,10 @@ const GenericMenuContent = ({ match }) => {
                 Object.keys(e).forEach(key => {
                     entries.items.push({
                         propertyName: key,
-                        propertyValue: `${e[key]}`
+                        propertyValue: `${e[key] ?? ''}`
                     });
                 });
-                
+
                 if (selectedRow == null) {
                     await createContent(entries);
                     toggleAddModal();
@@ -105,22 +105,24 @@ const GenericMenuContent = ({ match }) => {
                 <>
                     <Form className="av-tooltip tooltip-label-bottom">
                         <SkyModal.Body>
-
-                            {columnDefinitions.map((cd, index, array) => {
-                                if (array.length == index + 1) {
-                                    return null;
-                                }
-                                if (cd?.accessor == columnList[0].tableName + 'Id') return null
-                                return <>
-                                    <FormGroup className="form-group has-float-label">
-                                        <Label>
-                                            {cd.Header}
-                                        </Label>
-                                        <Field isClearable={true} className="form-control" name={cd.accessor} />
-                                    </FormGroup>
-                                </>
-                            })}
-
+                            <FormGroup row>
+                                {columnDefinitions.map((cd, index, array) => {
+                                    if (array.length == index + 1) {
+                                        return null;
+                                    }
+                                    if (cd?.accessor == columnList[0].tableName + 'Id') return null
+                                    return <>
+                                        <Colxx sm={6}>
+                                            <FormGroup className="form-group has-float-label">
+                                                <Label>
+                                                    {cd.Header}
+                                                </Label>
+                                                <Field isClearable={true} className="form-control" name={cd.accessor} />
+                                            </FormGroup>
+                                        </Colxx>
+                                    </>
+                                })}
+                            </FormGroup>
                         </SkyModal.Body>
                         <SkyModal.Footer>
                             <Button color="primary" type="submit">
@@ -132,7 +134,7 @@ const GenericMenuContent = ({ match }) => {
 
             )}
 
-        </Formik>
+        </Formik >
     }
 
     return (
