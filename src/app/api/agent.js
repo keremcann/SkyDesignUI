@@ -90,6 +90,11 @@ const Page = {
   createContent: (data) => requests.post('page/createPageDetail', data),
   updateContent: (data) => requests.put('page/updatePageDetail', data),
   deleteContent: (id, tableName) => requests.del('page/deletePageDetail?id=' + id + '&tableName=' + tableName),
+
+  createColumnList: (data) => requests.post('page/createColumnList', data),
+  updateColumnList: (data) => requests.put('page/updateColumnList', data),
+  deleteColumnList: (columnListId) => requests.post('page/deleteColumnList?columnListId=', columnListId),
+
 }
 
 const Role = {

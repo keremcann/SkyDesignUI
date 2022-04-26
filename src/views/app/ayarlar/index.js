@@ -14,6 +14,9 @@ const Yetkilendirme = React.lazy(() =>
 const SayfaTanimi = React.lazy(() =>
     import('./sayfa-tanimi')
 );
+const KolonListesi = React.lazy(() =>
+    import('./kolon-listesi')
+);
 
 
 const Dashboard = ({ match }) => (
@@ -35,6 +38,10 @@ const Dashboard = ({ match }) => (
             <Route
                 path={`${match.url}/sayfa-tanimi`}
                 render={(props) => <SayfaTanimi {...props} />}
+            />
+            <Route
+                path={`${match.url}/kolon-listesi`}
+                render={(props) => <KolonListesi {...props} />}
             />
             <Redirect to="/error" />
         </Switch>

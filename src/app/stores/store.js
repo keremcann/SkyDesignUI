@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import CatalogStore from "./catalogStore";
+import ColumnListStore from "./columnListStore";
 import CommonStore from "./commonStore";
 import DashboardStore from "./dashboardStore";
 import GenericMenuContentStore from "./genericMenuContentStore";
@@ -18,7 +19,8 @@ export const store = {
   dashboardStore: new DashboardStore(),
   pageStore: new PageStore(),
   genericMenuContentStore: new GenericMenuContentStore(),
-  roleStore: new RoleStore()
+  roleStore: new RoleStore(),
+  columnListStore: new ColumnListStore(),
 
 }
 

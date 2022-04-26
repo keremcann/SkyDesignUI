@@ -40,6 +40,12 @@ const data = [
                 pageUrl: '/app/ayarlar/sayfa-tanimi',
 
             },
+            {
+                pageIcon: 'iconsminds-air-balloon-2',
+                pageName: 'menu.ayarlar.kolon-listesi',
+                pageUrl: '/app/ayarlar/kolon-listesi',
+
+            },
         ]
     },
 ]

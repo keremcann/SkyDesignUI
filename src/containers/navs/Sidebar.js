@@ -18,7 +18,7 @@ import {
 import externalMenuItems from '../../constants/menu';
 import externalEndMenuItems from '../../constants/lastmenu';
 import { observable } from 'mobx';
-import { Observer } from 'mobx-react-lite';
+import { observer, Observer } from 'mobx-react-lite';
 import DashboardStore from '../../app/stores/dashboardStore';
 import { useStore } from '../../app/stores/store';
 import PageStore from '../../app/stores/pageStore';
@@ -831,7 +831,7 @@ class Sidebar extends Component {
     await fetch();
 
     const menuTree = TreeHelper.transformToTree(datam.data, 'pageId', 'parentId');
-    
+
     let datas = [];
     for (var key in menuTree) {
       let level2 = [];
@@ -840,7 +840,7 @@ class Sidebar extends Component {
         pageId: menuTree[key].pageName,
         parentId: menuTree[key].parentId,
         pageName: menuTree[key].pageName,
-        pageIcon: 'iconsminds-atom',
+        pageIcon: menuTree[key]?.pageIcon ?? 'iconsminds-atom',
         pageUrl: '/app/' + menuTree[key].pageUrl,
         isCustom: menuTree[key].isCustom ?? false,
         subs: level2
@@ -852,7 +852,7 @@ class Sidebar extends Component {
           pageId: menuTree[key].subs[key1].pageName,
           parentId: menuTree[key].subs[key1].parentId,
           pageName: menuTree[key].subs[key1].pageName,
-          pageIcon: 'iconsminds-atom',
+          pageIcon: menuTree[key].subs[key1]?.pageIcon ?? 'iconsminds-atom',
           pageUrl: '/app/' + menuTree[key].pageUrl + '/' + menuTree[key].subs[key1].pageUrl,
           // isCustom: menuTree[key].subs[key1].isCustom ?? false,
           isCustom: true,
@@ -865,7 +865,7 @@ class Sidebar extends Component {
             pageId: menuTree[key].subs[key1].subs[key2].pageName,
             parentId: menuTree[key].subs[key1].subs[key2].parentId,
             pageName: menuTree[key].subs[key1].subs[key2].pageName,
-            pageIcon: 'iconsminds-atom',
+            pageIcon: menuTree[key].subs[key1].subs[key2]?.pageIcon ?? 'iconsminds-atom',
             pageUrl: '/app/' + menuTree[key].pageUrl + '/' + menuTree[key].subs[key1].pageUrl + '/' + menuTree[key].subs[key1].subs[key2].pageUrl,
             isCustom: menuTree[key].subs[key1].subs[key2].isCustom ?? false,
           });
@@ -1172,10 +1172,11 @@ const mapStateToProps = ({ menu }) => {
   };
 };
 export default withRouter(
-  connect(mapStateToProps, {
-    setContainerClassnames,
-    addContainerClassname,
-    changeDefaultClassnames,
-    changeSelectedMenuHasSubItems,
-  })(Sidebar)
+  observable(
+    connect(mapStateToProps, {
+      setContainerClassnames,
+      addContainerClassname,
+      changeDefaultClassnames,
+      changeSelectedMenuHasSubItems,
+    })(Sidebar))
 );
