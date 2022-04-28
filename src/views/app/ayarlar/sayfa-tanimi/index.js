@@ -23,6 +23,7 @@ import Select, { components } from 'react-select';
 import CustomSelectInput from '../../../../app/common/form/CustomSelectInput';
 import { menuIconData } from '../../../../app/constants/menu-icon-data';
 import AddOrUpdateModal from './AddOrUpdateModal';
+import DefineColumnModal from './DefineColumnModal';
 const { Option } = components;
 
 const SayfaTanimi = ({ match }) => {
@@ -35,6 +36,7 @@ const SayfaTanimi = ({ match }) => {
     updateModalOpen, toggleUpdateModal,
     addModalOpen, toggleAddModal,
     deleteModalOpen, toggleDeleteModal,
+    addColumnModalOpen, toggleAddColumnModal,
 
     selectedItem, setSelectedItem
   } = pageStore;
@@ -95,7 +97,7 @@ const SayfaTanimi = ({ match }) => {
   let treeBuilder = TreeBuilder(data, 'pageId', 'parentId');
 
   const [selectedOption, setSelectedOption] = useState({ "label": "iconsminds-cursor-select", "value": "iconsminds-cursor-select", "key": 698, "icon": "iconsminds-cursor-select" });
-
+  pageStore.refreshedValue = pageStore.refreshedValue + 1
   return (
     <>
       <SkyModal
@@ -104,6 +106,14 @@ const SayfaTanimi = ({ match }) => {
         toggleModal={toggleAddModal}
       >
         <AddOrUpdateModal />
+      </SkyModal>
+
+      <SkyModal
+        headerText={`Kolon tanımlama (${selectedMenuItem?.pageName})`}
+        modalOpen={addColumnModalOpen}
+        toggleModal={toggleAddColumnModal}
+      >
+        <DefineColumnModal selectedItem={selectedMenuItem} />
       </SkyModal>
 
       <SkyModal
@@ -197,7 +207,7 @@ const SayfaTanimi = ({ match }) => {
               size="lg"
               className="top-right-button"
               onClick={() => {
-
+                toggleAddColumnModal();
               }}
             >
               {selectedMenuItem != null ? selectedMenuItem?.pageName + ' - ' : ''}Kolon tanımlama

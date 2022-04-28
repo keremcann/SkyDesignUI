@@ -13,6 +13,42 @@ export default class PageStore extends BaseCRUDStore {
   secondLevelMenu = [];
   thirdLevelMenu = [];
 
+
+  columnDefinitionList = [];
+
+  addColumnModalOpen = false;
+  toggleAddColumnModal = () => {
+    runInAction(() => {
+      this.addColumnModalOpen = !this.addColumnModalOpen;
+    })
+  }
+
+  addColumnToTable = async (data) => {
+    try {
+      let result = await agent.Page.addColumnToTable(data);
+      result.success ? Notifier.success(result.infoMessage) : Notifier.error(result.errorMessage);
+    } catch (error) {
+      Notifier.error(error, 'Error', 10000);
+    }
+  }
+  dropColumnFromTable = async (data) => {
+    try {
+      let result = await agent.Page.dropColumnFromTable(data);
+      result.success ? Notifier.success(result.infoMessage) : Notifier.error(result.errorMessage, 'HATA', 30000);
+    } catch (error) {
+      Notifier.error(error, 'Error', 10000);
+    }
+  }
+
+  refreshed = 0;
+  set refreshedValue(val) {
+    this.refreshed = val;
+  }
+  get refreshedValue() {
+    return this.refreshed;
+  }
+
+
   setSelectedItem = (data) => {
     runInAction(() => {
       this.selectedItem = data;
@@ -38,7 +74,10 @@ export default class PageStore extends BaseCRUDStore {
     super();
     makeObservable(this, {
       data: observable,
-      loading: observable
+      loading: observable,
+      columnDefinitionList: observable,
+      columnList: observable,
+      addColumnModalOpen: observable
     });
   }
 
@@ -49,6 +88,18 @@ export default class PageStore extends BaseCRUDStore {
         data
       ]
     })
+  }
+
+  columnList = [];
+  loadAllColumnListByPageId = async (pageId) => {
+    try {
+      const result = await agent.Page.getAllColumnListByPageId(pageId);
+      runInAction(() => {
+        this.columnList = result.value;
+      });
+    } catch (error) {
+      Notifier.error('There occured an error while getting the page list');
+    }
   }
 
   loadPages = async () => {
@@ -88,6 +139,17 @@ export default class PageStore extends BaseCRUDStore {
     } catch (error) {
       Notifier.error('There occured an error while getting the page list');
       this.loading = false;
+    }
+  }
+
+  loadColumnList = async () => {
+    try {
+      const content = await agent.Page.getColumnList();
+      runInAction(() => {
+        this.columnDefinitionList = content.value;
+      })
+    } catch (error) {
+
     }
   }
 }

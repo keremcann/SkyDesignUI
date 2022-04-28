@@ -91,9 +91,14 @@ const Page = {
   updateContent: (data) => requests.put('page/updatePageDetail', data),
   deleteContent: (id, tableName) => requests.del('page/deletePageDetail?id=' + id + '&tableName=' + tableName),
 
+  getColumnList: () => requests.get('page/getColumnList'),
   createColumnList: (data) => requests.post('page/createColumnList', data),
   updateColumnList: (data) => requests.put('page/updateColumnList', data),
   deleteColumnList: (columnListId) => requests.post('page/deleteColumnList?columnListId=', columnListId),
+
+  getAllColumnListByPageId: (pageId) => requests.get('page/getAllColumnListByPageId?pageId=' + pageId),
+  addColumnToTable: (data) => requests.post('page/addColumnToTable', data),
+  dropColumnFromTable: (data) => requests.post('page/dropColumnFromTable', data),
 
 }
 

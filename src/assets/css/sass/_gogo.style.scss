@@ -6915,6 +6915,12 @@ input:-webkit-autofill {
   border-color: $separator-color-light !important;
 }
 
+.fancy-hover:hover {
+  color: #008ecc;
+  font-weight: bold;
+  transition: all 0.4s;
+}
+
 .table .thead-light th {
   background-color: $separator-color-light !important;
 }

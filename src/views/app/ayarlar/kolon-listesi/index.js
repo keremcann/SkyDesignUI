@@ -18,28 +18,30 @@ const { Option } = components;
 
 const KolonListesi = ({ match }) => {
 
-  const { userStore, roleStore } = useStore();
+  const { pageStore } = useStore();
 
   const {
-    userList,
+    columnDefinitionList,
 
-    loadUsers, createUser, updateUser, deleteUserById,
+    loadColumnList,
 
     addModalOpen, toggleAddModal,
     updateModalOpen, toggleUpdateModal,
     deleteModalOpen, toggleDeleteModal
-  } = userStore;
+  } = pageStore;
 
   const [selectedRow, setSelectedRow] = useState(null);
 
   useEffect(() => {
-    loadUsers();
-  }, [loadUsers])
+    loadColumnList();
+  }, [])
 
   const columnDefinitions = [
-    new SkyTableColumnBuilder('userId', 'User ID').withTextFilter(true).build(),
-    new SkyTableColumnBuilder('fullName', 'Name').withSelectFilter().build(),
-    new SkyTableColumnBuilder('userName', 'Description').withTextFilter().build(),
+    new SkyTableColumnBuilder('columnListId', 'ID').withTextFilter(true).build(),
+    new SkyTableColumnBuilder('columnName', 'Name').withSelectFilter().build(),
+    new SkyTableColumnBuilder('dataType', 'Data type').withSelectFilter().build(),
+    new SkyTableColumnBuilder('description', 'Description').withTextFilter().build(),
+    new SkyTableColumnBuilder('nullable', 'Nullable').withSelectFilter().build(),
     new SkyTableColumnBuilder('actions', 'Actions').withFormat((row) => {
       return <div style={{ display: 'flex' }}>
         <button className='form-control' onClick={() => {
@@ -58,7 +60,7 @@ const KolonListesi = ({ match }) => {
       <Row>
         <Colxx className="mb-12">
 
-          <Breadcrumb heading={'menu.ayarlar.kullanici-tanimi'} match={match} />
+          <Breadcrumb heading={'menu.ayarlar.kolon-tanimi'} match={match} />
 
           <div className="text-zero top-right-button-container">
             <Button
@@ -81,7 +83,7 @@ const KolonListesi = ({ match }) => {
                 <Colxx className="mb-12">
                   <SkyTable
                     columns={columnDefinitions}
-                    data={userList}
+                    data={columnDefinitionList}
                     onRowSelected={(row) => {
                       setSelectedRow(row);
                     }} />
@@ -121,9 +123,9 @@ const KolonListesi = ({ match }) => {
         </SkyModal.Body>
         <SkyModal.Footer>
           <Button style={{ backgroundColor: 'red' }} color="secondary" type="button" onClick={async () => {
-            await deleteUserById(selectedRow?.userId);
+            // await deleteUserById(selectedRow?.userId);
             toggleDeleteModal();
-            await loadUsers();
+            // await loadUsers();
           }}>
             Sil
           </Button>

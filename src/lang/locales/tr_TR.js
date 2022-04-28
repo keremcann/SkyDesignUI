@@ -50,6 +50,8 @@ module.exports = {
   
   /* Settings Page */
   'menu.ayarlar.kullanici-tanimi': 'Kullanıcı tanımı',
+  'menu.ayarlar.kolon-tanimi': 'Kolon tanımı',
+  'menu.ayarlar.kolon-listesi': 'Kolon tanımı',
   'menu.ayarlar.rol-tanimi': 'Rol tanımı',
   'menu.ayarlar.yetkilendirme': 'Yetkilendirme',
   'menu.ayarlar.yetkilendirme.sayfa-yetkilendirme': 'Sayfa yetkilendirme',
