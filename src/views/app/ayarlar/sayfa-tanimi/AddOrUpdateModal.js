@@ -21,12 +21,13 @@ const AddOrUpdateModal = (data) => {
   const {
     createPage, loadPages, addPage,
 
-    toggleAddModal, addModalOpen
+    toggleAddModal, addModalOpen,
+    toggleUpdateModal, updateModalOpen
   } = pageStore;
 
   const [selectedOption, setSelectedOption] = useState({ "label": "iconsminds-cursor-select", "value": "iconsminds-cursor-select", "key": 698, "icon": "iconsminds-cursor-select" })
   const [isCustomPage, setIsCustomPage] = useState(false);
-  
+
   let initialValues = {
     parentId: null,
     isCustom: isCustomPage,
@@ -52,15 +53,17 @@ const AddOrUpdateModal = (data) => {
           })
         }
         onSubmit={async (e) => {
-          if(data.data == null) {
+          if (data.data == null) {
+
             e = {
               ...e,
               pageIcon: selectedOption?.icon
             }
 
             await createPage(e);
-            await addPage(e);
             toggleAddModal();
+            await loadPages();
+            
           }
         }}
       >

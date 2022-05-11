@@ -26,8 +26,10 @@ export default class GenericMenuContentStore extends BaseCRUDStore {
                 this.data = content.value.result.data;
                 this.loading = false;
             });
+
         } catch (error) {
-            // Notifier.error('There occured an error while getting the page list');
+            Notifier.error(JSON.stringify(error));
+            Notifier.error('There occured an error while getting the page list');
             this.loading = false;
         }
     }

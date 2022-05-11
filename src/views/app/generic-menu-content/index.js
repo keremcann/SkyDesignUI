@@ -11,214 +11,144 @@ import TreeHelper from '../../../app/utils/TreeManagement/TreeHelper';
 import { Colxx, Separator } from '../../../components/common/CustomBootstrap';
 import SkyModal from '../../../components/common/SkyModal';
 import IntlMessages from '../../../helpers/IntlMessages';
+import AddOrUpdateModal from './AddOrUpdateModal';
 
 const GenericMenuContent = ({ match }) => {
 
-    const { genericMenuContentStore } = useStore();
-    const {
-        columnList, data, loading,
-        loadContent, createContent, updateContent, deleteContent,
+  const { genericMenuContentStore } = useStore();
+  const {
+    columnList, data, loading,
+    loadContent, createContent, updateContent, deleteContent,
 
-        updateModalOpen, toggleUpdateModal,
-        addModalOpen, toggleAddModal,
-        deleteModalOpen, toggleDeleteModal
-    } = genericMenuContentStore;
+    updateModalOpen, toggleUpdateModal,
+    addModalOpen, toggleAddModal,
+    deleteModalOpen, toggleDeleteModal
+  } = genericMenuContentStore;
 
-    const loadAllContent = async () => {
-        await loadContent(match.params.Level1Menu, match.params.Level2Menu, match.params.Level3Menu);
-    }
+  const loadAllContent = async () => {
+    await loadContent(match.params.Level1Menu, match.params.Level2Menu, match.params.Level3Menu);
+  }
 
-    useEffect(() => autorun(() => {
-        loadAllContent();
-    }), [match, loadContent]);
+  useEffect(() => autorun(() => {
+    loadAllContent();
+  }), [match, loadContent]);
 
-    const [selectedRow, setSelectedRow] = useState(null);
+  const [selectedRow, setSelectedRow] = useState(null);
 
-    const columnDefinitions =
-        columnList
-            .filter(column =>
-                column.columnName != 'CreateUser' &&
-                column.columnName != 'CreateDate' &&
-                column.columnName != 'UpdateUser' &&
-                column.columnName != 'UpdateDate' &&
-                column.columnName != 'DeleteUser' &&
-                column.columnName != 'DeleteDate' &&
-                column.columnName != 'IsActive'
-                // column.columnName != columnList[0]?.tableName + 'Id'
-            )
-            .map((column, index, array) => {
-                return new SkyTableColumnBuilder(column.columnName, column.columnName).withSelectFilter().build()
-            })
-            .concat(
-                new SkyTableColumnBuilder('actions', 'Actions').withFormat((row) => {
-                    return (
-                        <div style={{ display: 'flex', marginRight: '10px', textAlign: 'right' }}>
-                            <button className='form-control' onClick={(e) => {
-                                setSelectedRow(row.row.values);
-                                toggleUpdateModal();
-                            }}>Edit</button>
+  const columnDefinitions =
+    columnList
+      .filter(column =>
+        column.columnName != 'CreateUser' &&
+        column.columnName != 'CreateDate' &&
+        column.columnName != 'UpdateUser' &&
+        column.columnName != 'UpdateDate' &&
+        column.columnName != 'DeleteUser' &&
+        column.columnName != 'DeleteDate' &&
+        column.columnName != 'IsActive'
+        // column.columnName != columnList[0]?.tableName + 'Id'
+      )
+      .map((column, index, array) => {
+        return new SkyTableColumnBuilder(column.columnName, column.columnName).withSelectFilter().build()
+      })
+      .concat(
+        new SkyTableColumnBuilder('actions', 'Actions').withFormat((row) => {
+          return (
+            <div style={{ display: 'flex', marginRight: '10px', textAlign: 'right' }}>
+              <button className='form-control' onClick={(e) => {
+                setSelectedRow(row.row.values);
+                toggleUpdateModal();
+              }}>Edit</button>
 
-                            <button className='form-control' onClick={(e) => {
-                                setSelectedRow(row.row.values);
-                                toggleDeleteModal();
-                            }} style={{ color: 'red', marginLeft: '6px' }}>Delete</button>
-                        </div>
-                    )
-                }).build())
+              <button className='form-control' onClick={(e) => {
+                setSelectedRow(row.row.values);
+                toggleDeleteModal();
+              }} style={{ color: 'red', marginLeft: '6px' }}>Delete</button>
+            </div>
+          )
+        }).build())
 
-    const AddOrUpdateModal = () => {
-        return <Formik
-            initialValues={
-                selectedRow != null
-                    ? selectedRow
-                    : {}
-            }
-            onSubmit={async (e) => {
+  return (
+    <Suspense fallback={<div className="loading" />}>
 
-                let entries = {
-                    tableName: columnList[0]?.tableName,
-                    items: []
-                };
+      <SkyModal
+        headerText={'Yeni kayıt'}
+        modalOpen={addModalOpen}
+        toggleModal={toggleAddModal}
+      >
+        <AddOrUpdateModal match={match} columnDefinitions={columnDefinitions} />
+      </SkyModal>
 
-                Object.keys(e).forEach(key => {
-                    entries.items.push({
-                        propertyName: key,
-                        propertyValue: `${e[key] ?? ''}`
-                    });
-                });
+      <SkyModal
+        headerText={'Güncelleme'}
+        modalOpen={updateModalOpen}
+        toggleModal={toggleUpdateModal}
+      >
+        <AddOrUpdateModal selectedRow={selectedRow} match={match} columnDefinitions={columnDefinitions} />
+      </SkyModal>
 
-                if (selectedRow == null) {
-                    await createContent(entries);
-                    toggleAddModal();
-                } else {
-                    entries.items.pop();
-                    await updateContent(entries);
-                    toggleUpdateModal();
-                }
-                await loadAllContent();
-            }}
-        >
-            {({
-                errors,
-                touched,
-            }) => (
-                <>
-                    <Form className="av-tooltip tooltip-label-bottom">
-                        <SkyModal.Body>
-                            <FormGroup row>
-                                {columnDefinitions.map((cd, index, array) => {
-                                    if (array.length == index + 1) {
-                                        return null;
-                                    }
-                                    if (cd?.accessor == columnList[0].tableName + 'Id') return null
-                                    return <>
-                                        <Colxx sm={6}>
-                                            <FormGroup className="form-group has-float-label">
-                                                <Label>
-                                                    {cd.Header}
-                                                </Label>
-                                                <Field isClearable={true} className="form-control" name={cd.accessor} />
-                                            </FormGroup>
-                                        </Colxx>
-                                    </>
-                                })}
-                            </FormGroup>
-                        </SkyModal.Body>
-                        <SkyModal.Footer>
-                            <Button color="primary" type="submit">
-                                Kaydet
-                            </Button>
-                        </SkyModal.Footer>
-                    </Form>
-                </>
+      <SkyModal
+        headerText={'Silme işlemi onayı'}
+        modalOpen={deleteModalOpen}
+        toggleModal={toggleDeleteModal}
+      >
+        <SkyModal.Body>
 
-            )}
+          <p><b>{selectedRow?.Name}</b> isimli kayıt silinmek üzere. İşlemi onaylıyor musunuz?</p>
 
-        </Formik >
-    }
+        </SkyModal.Body>
+        <SkyModal.Footer>
+          <Button style={{ backgroundColor: 'red' }} color="secondary" type="button" onClick={async () => {
+            await deleteContent(selectedRow[Object.keys(selectedRow)[0]], columnList[0].tableName);
+            toggleDeleteModal();
+            await loadAllContent();
+          }}>
+            Sil
+          </Button>
 
-    return (
-        <Suspense fallback={<div className="loading" />}>
+          <Button color="secondary" type="button" onClick={async () => {
+            toggleDeleteModal();
+          }}>
+            İptal
+          </Button>
 
-            <SkyModal
-                headerText={'Yeni kayıt'}
-                modalOpen={addModalOpen}
-                toggleModal={toggleAddModal}
+        </SkyModal.Footer>
+      </SkyModal>
+
+      <Row>
+        <Colxx className="mb-12">
+
+          <h1>{columnList[0]?.tableName}</h1>
+
+          <div className="text-zero top-right-button-container">
+            <Button
+              color="primary"
+              size="lg"
+              className="top-right-button"
+              onClick={() => {
+                setSelectedRow(null);
+                toggleAddModal();
+              }}
             >
-                <AddOrUpdateModal />
-            </SkyModal>
+              <IntlMessages id="pages.add-new" />
+            </Button>
+          </div>
 
-            <SkyModal
-                headerText={'Güncelleme'}
-                modalOpen={updateModalOpen}
-                toggleModal={toggleUpdateModal}
-            >
-                <AddOrUpdateModal />
-            </SkyModal>
+          <Separator className="mb-5" />
 
-            <SkyModal
-                headerText={'Silme işlemi onayı'}
-                modalOpen={deleteModalOpen}
-                toggleModal={toggleDeleteModal}
-            >
-                <SkyModal.Body>
+          <Card className="mb-4">
+            <CardBody>
 
-                    <p><b>{selectedRow?.Name}</b> isimli kayıt silinmek üzere. İşlemi onaylıyor musunuz?</p>
+              {<SkyTable
+                columns={columnDefinitions}
+                data={data}
+              />
+              }
+            </CardBody>
+          </Card>
+        </Colxx>
+      </Row>
 
-                </SkyModal.Body>
-                <SkyModal.Footer>
-                    <Button style={{ backgroundColor: 'red' }} color="secondary" type="button" onClick={async () => {
-                        await deleteContent(selectedRow[Object.keys(selectedRow)[0]], columnList[0].tableName);
-                        toggleDeleteModal();
-                        await loadAllContent();
-                    }}>
-                        Sil
-                    </Button>
-
-                    <Button color="secondary" type="button" onClick={async () => {
-                        toggleDeleteModal();
-                    }}>
-                        İptal
-                    </Button>
-
-                </SkyModal.Footer>
-            </SkyModal>
-
-            <Row>
-                <Colxx className="mb-12">
-
-                    <h1>{columnList[0]?.tableName}</h1>
-
-                    <div className="text-zero top-right-button-container">
-                        <Button
-                            color="primary"
-                            size="lg"
-                            className="top-right-button"
-                            onClick={() => {
-                                setSelectedRow(null);
-                                toggleAddModal();
-                            }}
-                        >
-                            <IntlMessages id="pages.add-new" />
-                        </Button>
-                    </div>
-
-                    <Separator className="mb-5" />
-
-                    <Card className="mb-4">
-                        <CardBody>
-
-                            {<SkyTable
-                                columns={columnDefinitions}
-                                data={data}
-                            />
-                            }
-                        </CardBody>
-                    </Card>
-                </Colxx>
-            </Row>
-
-        </Suspense >
-    )
+    </Suspense >
+  )
 };
 export default observer(GenericMenuContent);

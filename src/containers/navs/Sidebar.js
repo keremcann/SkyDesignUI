@@ -42,6 +42,19 @@ class Sidebar extends Component {
       collapsedMenus: [],
       menuItems: [...externalMenuItems, ...externalEndMenuItems]
     };
+
+
+    // const fetch = async () => {
+    //   let datam = new DashboardStore();
+    //   await datam.loadMenus().then(res => {
+    //     this.setState({
+    //       ...this.state,
+    //       menus: datam.data
+    //     });
+    //   });
+    //   alert(JSON.stringify(this.state.menus));
+    // }
+    // fetch();
   }
 
   handleWindowResize = (event) => {
@@ -255,7 +268,8 @@ class Sidebar extends Component {
     return false;
   };
 
-  async componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
+
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.setSelectedLiActive(this.setHasSubItemStatus);
 
@@ -266,62 +280,57 @@ class Sidebar extends Component {
 
 
 
-    let datam = new PageStore();
-    const fetch = async () => {
-      await datam.loadPages();
-    }
-    await fetch();
+    // let datam = new PageStore();
+    // const fetch = async () => {
+    //   await datam.loadPages();
+    // }
+    // await fetch();
 
-    const menuTree = TreeHelper.transformToTree(datam.data, 'pageId', 'parentId');
+    // const menuTree = TreeHelper.transformToTree(datam.data, 'pageId', 'parentId');
 
-    let datas = [];
-    for (var key in menuTree) {
-      let level2 = [];
+    // let datas = [];
+    // for (var key in menuTree) {
+    //   let level2 = [];
 
-      let level1 = {
-        pageId: menuTree[key].pageName,
-        parentId: menuTree[key].parentId,
-        pageName: menuTree[key].pageName,
-        pageIcon: menuTree[key]?.pageIcon ?? 'iconsminds-atom',
-        pageUrl: '/app/' + menuTree[key].pageUrl,
-        isCustom: menuTree[key].isCustom ?? false,
-        subs: level2
-      };
-      for (var key1 in menuTree[key].subs) {
-        let level3 = [];
+    //   let level1 = {
+    //     pageId: menuTree[key].pageName,
+    //     parentId: menuTree[key].parentId,
+    //     pageName: menuTree[key].pageName,
+    //     pageIcon: menuTree[key]?.pageIcon ?? 'iconsminds-atom',
+    //     pageUrl: '/app/' + menuTree[key].pageUrl,
+    //     isCustom: menuTree[key].isCustom ?? false,
+    //     subs: level2
+    //   };
+    //   for (var key1 in menuTree[key].subs) {
+    //     let level3 = [];
 
-        level2.push({
-          pageId: menuTree[key].subs[key1].pageName,
-          parentId: menuTree[key].subs[key1].parentId,
-          pageName: menuTree[key].subs[key1].pageName,
-          pageIcon: menuTree[key].subs[key1]?.pageIcon ?? 'iconsminds-atom',
-          pageUrl: '/app/' + menuTree[key].pageUrl + '/' + menuTree[key].subs[key1].pageUrl,
-          // isCustom: menuTree[key].subs[key1].isCustom ?? false,
-          isCustom: true,
-          subs: level3,
+    //     level2.push({
+    //       pageId: menuTree[key].subs[key1].pageName,
+    //       parentId: menuTree[key].subs[key1].parentId,
+    //       pageName: menuTree[key].subs[key1].pageName,
+    //       pageIcon: menuTree[key].subs[key1]?.pageIcon ?? 'iconsminds-atom',
+    //       pageUrl: '/app/' + menuTree[key].pageUrl + '/' + menuTree[key].subs[key1].pageUrl,
+    //       // isCustom: menuTree[key].subs[key1].isCustom ?? false,
+    //       isCustom: true,
+    //       subs: level3,
 
-          type: 'diyagram'
-        })
-        for (var key2 in menuTree[key].subs[key1].subs) {
-          level3.push({
-            pageId: menuTree[key].subs[key1].subs[key2].pageName,
-            parentId: menuTree[key].subs[key1].subs[key2].parentId,
-            pageName: menuTree[key].subs[key1].subs[key2].pageName,
-            pageIcon: menuTree[key].subs[key1].subs[key2]?.pageIcon ?? 'iconsminds-atom',
-            pageUrl: '/app/' + menuTree[key].pageUrl + '/' + menuTree[key].subs[key1].pageUrl + '/' + menuTree[key].subs[key1].subs[key2].pageUrl,
-            isCustom: menuTree[key].subs[key1].subs[key2].isCustom ?? false,
-          });
-        }
-      }
-      datas.push(level1);
-    }
+    //       type: 'diyagram'
+    //     })
+    //     for (var key2 in menuTree[key].subs[key1].subs) {
+    //       level3.push({
+    //         pageId: menuTree[key].subs[key1].subs[key2].pageName,
+    //         parentId: menuTree[key].subs[key1].subs[key2].parentId,
+    //         pageName: menuTree[key].subs[key1].subs[key2].pageName,
+    //         pageIcon: menuTree[key].subs[key1].subs[key2]?.pageIcon ?? 'iconsminds-atom',
+    //         pageUrl: '/app/' + menuTree[key].pageUrl + '/' + menuTree[key].subs[key1].pageUrl + '/' + menuTree[key].subs[key1].subs[key2].pageUrl,
+    //         isCustom: menuTree[key].subs[key1].subs[key2].isCustom ?? false,
+    //       });
+    //     }
+    //   }
+    //   datas.push(level1);
+    // }
 
-    this.state.menuItems = externalMenuItems.concat(datas).concat(externalEndMenuItems)
-
-    window.addEventListener('resize', this.handleWindowResize);
-    this.handleWindowResize();
-    this.handleProps();
-
+    // this.state.menuItems = externalMenuItems.concat(datas).concat(externalEndMenuItems)
   }
 
   async componentDidMount() {

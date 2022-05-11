@@ -231,7 +231,7 @@ const SayfaTanimi = ({ match }) => {
                                     </pre>
                                 </Colxx>
                             </Row> */}
-              <Row>
+              {/* <Row>
                 <button onClick={async () => {
                   setSecondLevelMenu([
                     ...secondLevelMenu,
@@ -246,7 +246,7 @@ const SayfaTanimi = ({ match }) => {
                     }
                   ])
                 }}>Click here</button>
-              </Row>
+              </Row> */}
               <Row>
                 <Colxx style={{ textAlign: 'right' }}>
                   {<button
