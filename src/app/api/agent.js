@@ -13,6 +13,7 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(async response => {
   return response;
 }, (error) => {
+  console.log(error);
   if (error.response === undefined) {
     Notifier.error(error.message);
     return Promise.reject(error);
@@ -99,6 +100,13 @@ const Page = {
   getAllColumnListByPageId: (pageId) => requests.get('page/getAllColumnListByPageId?pageId=' + pageId),
   addColumnToTable: (data) => requests.post('page/addColumnToTable', data),
   dropColumnFromTable: (data) => requests.post('page/dropColumnFromTable', data),
+
+  getAddOrUpdateModalDetailPageByPage: (level1Menu, level2Menu, level3Menu, id) =>
+    requests.get('page/getAddOrUpdateModalDetailPageByPage?' +
+      (level1Menu && 'level1Menu=' + level1Menu + '&') +
+      (level2Menu && 'level2Menu=' + level2Menu + '&') +
+      (level3Menu && 'level3Menu=' + level3Menu + '&') +
+      (id && 'id=' + id))
 
 }
 
