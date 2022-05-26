@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  skydesign_uihost:
+    image: ${DOCKER_REGISTRY-}skydesign_uihost
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_PATH=./src
+    command: npm start
+    tty: true
+    stdin_open: true
+    ports:
+      - "5001:3000"
